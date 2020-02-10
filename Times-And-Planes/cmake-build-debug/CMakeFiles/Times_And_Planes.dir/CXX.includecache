@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Read_CheckPoints.h
+string
+-
+
+E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/main.cpp
+iostream
+-
+Read_CheckPoints.h
+E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Read_CheckPoints.h
+
