@@ -1,0 +1,20 @@
+<scheme name="Darcula" version="142" parent_scheme="Darcula">
+  <option name="FONT_SCALE" value="1.0" />
+  <metaInfo>
+    <property name="created">2020-02-11T13:11:29</property>
+    <property name="ide">CLion</property>
+    <property name="ideVersion">2019.3.3.0.0</property>
+    <property name="modified">2020-02-11T13:12:08</property>
+    <property name="originalScheme">_@user_Darcula</property>
+  </metaInfo>
+  <option name="LINE_SPACING" value="1.2" />
+  <option name="EDITOR_FONT_SIZE" value="20" />
+  <option name="EDITOR_FONT_NAME" value="Consolas" />
+  <attributes>
+    <option name="OC.OVERLOADED_OPERATOR">
+      <value>
+        <option name="FOREGROUND" value="438c62" />
+      </value>
+    </option>
+  </attributes>
+</scheme>
