@@ -80,10 +80,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/CheckPoint.h">
+			<Option target="Times_And_Planes"/>
+		</Unit>
+		<Unit filename="E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Function_OpenFile.cpp">
+			<Option target="Times_And_Planes"/>
+		</Unit>
+		<Unit filename="E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Function_OpenFile.h">
+			<Option target="Times_And_Planes"/>
+		</Unit>
 		<Unit filename="E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Read_CheckPoints.cpp">
 			<Option target="Times_And_Planes"/>
 		</Unit>
 		<Unit filename="E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Read_CheckPoints.h">
+			<Option target="Times_And_Planes"/>
+		</Unit>
+		<Unit filename="E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Read_Scheme.cpp">
+			<Option target="Times_And_Planes"/>
+		</Unit>
+		<Unit filename="E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Read_Scheme.h">
+			<Option target="Times_And_Planes"/>
+		</Unit>
+		<Unit filename="E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Scheme.h">
 			<Option target="Times_And_Planes"/>
 		</Unit>
 		<Unit filename="E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/main.cpp">

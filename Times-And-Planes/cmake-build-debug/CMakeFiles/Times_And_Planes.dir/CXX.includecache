@@ -6,13 +6,15 @@
 
 #IncludeRegexTransform: 
 
-E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Read_CheckPoints.h
-string
+E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Function_OpenFile.cpp
+fstream
 -
-
-E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/main.cpp
 iostream
 -
-Read_CheckPoints.h
-E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Read_CheckPoints.h
+Function_OpenFile.h
+E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Function_OpenFile.h
+
+E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Function_OpenFile.h
+string
+-
 

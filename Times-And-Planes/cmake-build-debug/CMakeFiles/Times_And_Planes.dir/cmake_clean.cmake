@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.obj"
   "CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.obj"
+  "CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.obj"
   "CMakeFiles/Times_And_Planes.dir/main.cpp.obj"
   "Times_And_Planes.exe"
   "Times_And_Planes.exe.manifest"

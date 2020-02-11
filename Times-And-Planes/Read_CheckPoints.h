@@ -9,4 +9,4 @@ void Read_CheckPoints(const std::string& name_of_file);
 
 
 
-#endif //TIMES_AND_PLANES_READ_CHECKPOINTS_H
+#endif

@@ -122,6 +122,33 @@ Times_And_Planes/fast:
 	$(MAKE) -f CMakeFiles\Times_And_Planes.dir\build.make CMakeFiles/Times_And_Planes.dir/build
 .PHONY : Times_And_Planes/fast
 
+Function_OpenFile.obj: Function_OpenFile.cpp.obj
+
+.PHONY : Function_OpenFile.obj
+
+# target to build an object file
+Function_OpenFile.cpp.obj:
+	$(MAKE) -f CMakeFiles\Times_And_Planes.dir\build.make CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.obj
+.PHONY : Function_OpenFile.cpp.obj
+
+Function_OpenFile.i: Function_OpenFile.cpp.i
+
+.PHONY : Function_OpenFile.i
+
+# target to preprocess a source file
+Function_OpenFile.cpp.i:
+	$(MAKE) -f CMakeFiles\Times_And_Planes.dir\build.make CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.i
+.PHONY : Function_OpenFile.cpp.i
+
+Function_OpenFile.s: Function_OpenFile.cpp.s
+
+.PHONY : Function_OpenFile.s
+
+# target to generate assembly for a file
+Function_OpenFile.cpp.s:
+	$(MAKE) -f CMakeFiles\Times_And_Planes.dir\build.make CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.s
+.PHONY : Function_OpenFile.cpp.s
+
 Read_CheckPoints.obj: Read_CheckPoints.cpp.obj
 
 .PHONY : Read_CheckPoints.obj
@@ -148,6 +175,33 @@ Read_CheckPoints.s: Read_CheckPoints.cpp.s
 Read_CheckPoints.cpp.s:
 	$(MAKE) -f CMakeFiles\Times_And_Planes.dir\build.make CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.s
 .PHONY : Read_CheckPoints.cpp.s
+
+Read_Scheme.obj: Read_Scheme.cpp.obj
+
+.PHONY : Read_Scheme.obj
+
+# target to build an object file
+Read_Scheme.cpp.obj:
+	$(MAKE) -f CMakeFiles\Times_And_Planes.dir\build.make CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.obj
+.PHONY : Read_Scheme.cpp.obj
+
+Read_Scheme.i: Read_Scheme.cpp.i
+
+.PHONY : Read_Scheme.i
+
+# target to preprocess a source file
+Read_Scheme.cpp.i:
+	$(MAKE) -f CMakeFiles\Times_And_Planes.dir\build.make CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.i
+.PHONY : Read_Scheme.cpp.i
+
+Read_Scheme.s: Read_Scheme.cpp.s
+
+.PHONY : Read_Scheme.s
+
+# target to generate assembly for a file
+Read_Scheme.cpp.s:
+	$(MAKE) -f CMakeFiles\Times_And_Planes.dir\build.make CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.s
+.PHONY : Read_Scheme.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -185,9 +239,15 @@ help:
 	@echo ... Times_And_Planes
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Function_OpenFile.obj
+	@echo ... Function_OpenFile.i
+	@echo ... Function_OpenFile.s
 	@echo ... Read_CheckPoints.obj
 	@echo ... Read_CheckPoints.i
 	@echo ... Read_CheckPoints.s
+	@echo ... Read_Scheme.obj
+	@echo ... Read_Scheme.i
+	@echo ... Read_Scheme.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
