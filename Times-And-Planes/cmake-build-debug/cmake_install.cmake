@@ -1,4 +1,4 @@
-# Install script for directory: E:/Works/Diplom/Bachelor_diplom/Times-And-Planes
+# Install script for directory: D:/Work/Bachelor_diplom/Times-And-Planes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Work/Bachelor_diplom/Times-And-Planes/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

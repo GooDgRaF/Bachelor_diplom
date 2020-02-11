@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.3.3\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\Works\Diplom\Bachelor_diplom\Times-And-Planes
+CMAKE_SOURCE_DIR = D:\Work\Bachelor_diplom\Times-And-Planes
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\cmake-build-debug
+CMAKE_BINARY_DIR = D:\Work\Bachelor_diplom\Times-And-Planes\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Times_And_Planes.dir/depend.make
@@ -58,55 +58,55 @@ include CMakeFiles/Times_And_Planes.dir/flags.make
 
 CMakeFiles/Times_And_Planes.dir/main.cpp.obj: CMakeFiles/Times_And_Planes.dir/flags.make
 CMakeFiles/Times_And_Planes.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Times_And_Planes.dir/main.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Times_And_Planes.dir\main.cpp.obj -c E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Work\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Times_And_Planes.dir/main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Times_And_Planes.dir\main.cpp.obj -c D:\Work\Bachelor_diplom\Times-And-Planes\main.cpp
 
 CMakeFiles/Times_And_Planes.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Times_And_Planes.dir/main.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\main.cpp > CMakeFiles\Times_And_Planes.dir\main.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Work\Bachelor_diplom\Times-And-Planes\main.cpp > CMakeFiles\Times_And_Planes.dir\main.cpp.i
 
 CMakeFiles/Times_And_Planes.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Times_And_Planes.dir/main.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\main.cpp -o CMakeFiles\Times_And_Planes.dir\main.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Work\Bachelor_diplom\Times-And-Planes\main.cpp -o CMakeFiles\Times_And_Planes.dir\main.cpp.s
 
 CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.obj: CMakeFiles/Times_And_Planes.dir/flags.make
 CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.obj: ../Read_CheckPoints.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Times_And_Planes.dir\Read_CheckPoints.cpp.obj -c E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\Read_CheckPoints.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Work\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Times_And_Planes.dir\Read_CheckPoints.cpp.obj -c D:\Work\Bachelor_diplom\Times-And-Planes\Read_CheckPoints.cpp
 
 CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\Read_CheckPoints.cpp > CMakeFiles\Times_And_Planes.dir\Read_CheckPoints.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Work\Bachelor_diplom\Times-And-Planes\Read_CheckPoints.cpp > CMakeFiles\Times_And_Planes.dir\Read_CheckPoints.cpp.i
 
 CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Times_And_Planes.dir/Read_CheckPoints.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\Read_CheckPoints.cpp -o CMakeFiles\Times_And_Planes.dir\Read_CheckPoints.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Work\Bachelor_diplom\Times-And-Planes\Read_CheckPoints.cpp -o CMakeFiles\Times_And_Planes.dir\Read_CheckPoints.cpp.s
 
 CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.obj: CMakeFiles/Times_And_Planes.dir/flags.make
 CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.obj: ../Read_Scheme.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Times_And_Planes.dir\Read_Scheme.cpp.obj -c E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\Read_Scheme.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Work\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Times_And_Planes.dir\Read_Scheme.cpp.obj -c D:\Work\Bachelor_diplom\Times-And-Planes\Read_Scheme.cpp
 
 CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\Read_Scheme.cpp > CMakeFiles\Times_And_Planes.dir\Read_Scheme.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Work\Bachelor_diplom\Times-And-Planes\Read_Scheme.cpp > CMakeFiles\Times_And_Planes.dir\Read_Scheme.cpp.i
 
 CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\Read_Scheme.cpp -o CMakeFiles\Times_And_Planes.dir\Read_Scheme.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Work\Bachelor_diplom\Times-And-Planes\Read_Scheme.cpp -o CMakeFiles\Times_And_Planes.dir\Read_Scheme.cpp.s
 
 CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.obj: CMakeFiles/Times_And_Planes.dir/flags.make
 CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.obj: ../Function_OpenFile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Times_And_Planes.dir\Function_OpenFile.cpp.obj -c E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\Function_OpenFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Work\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Times_And_Planes.dir\Function_OpenFile.cpp.obj -c D:\Work\Bachelor_diplom\Times-And-Planes\Function_OpenFile.cpp
 
 CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\Function_OpenFile.cpp > CMakeFiles\Times_And_Planes.dir\Function_OpenFile.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Work\Bachelor_diplom\Times-And-Planes\Function_OpenFile.cpp > CMakeFiles\Times_And_Planes.dir\Function_OpenFile.cpp.i
 
 CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Times_And_Planes.dir/Function_OpenFile.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\Function_OpenFile.cpp -o CMakeFiles\Times_And_Planes.dir\Function_OpenFile.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Work\Bachelor_diplom\Times-And-Planes\Function_OpenFile.cpp -o CMakeFiles\Times_And_Planes.dir\Function_OpenFile.cpp.s
 
 # Object files for target Times_And_Planes
 Times_And_Planes_OBJECTS = \
@@ -126,7 +126,7 @@ Times_And_Planes.exe: CMakeFiles/Times_And_Planes.dir/build.make
 Times_And_Planes.exe: CMakeFiles/Times_And_Planes.dir/linklibs.rsp
 Times_And_Planes.exe: CMakeFiles/Times_And_Planes.dir/objects1.rsp
 Times_And_Planes.exe: CMakeFiles/Times_And_Planes.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Times_And_Planes.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Work\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Times_And_Planes.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Times_And_Planes.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -139,6 +139,6 @@ CMakeFiles/Times_And_Planes.dir/clean:
 .PHONY : CMakeFiles/Times_And_Planes.dir/clean
 
 CMakeFiles/Times_And_Planes.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" E:\Works\Diplom\Bachelor_diplom\Times-And-Planes E:\Works\Diplom\Bachelor_diplom\Times-And-Planes E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\cmake-build-debug E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\cmake-build-debug E:\Works\Diplom\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles\Times_And_Planes.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Work\Bachelor_diplom\Times-And-Planes D:\Work\Bachelor_diplom\Times-And-Planes D:\Work\Bachelor_diplom\Times-And-Planes\cmake-build-debug D:\Work\Bachelor_diplom\Times-And-Planes\cmake-build-debug D:\Work\Bachelor_diplom\Times-And-Planes\cmake-build-debug\CMakeFiles\Times_And_Planes.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Times_And_Planes.dir/depend
 

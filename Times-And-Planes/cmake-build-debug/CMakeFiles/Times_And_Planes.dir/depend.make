@@ -13,7 +13,9 @@ CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.obj: ../Read_Scheme.cpp
 CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.obj: ../Read_Scheme.h
 CMakeFiles/Times_And_Planes.dir/Read_Scheme.cpp.obj: ../Scheme.h
 
+CMakeFiles/Times_And_Planes.dir/main.cpp.obj: ../CheckPoint.h
 CMakeFiles/Times_And_Planes.dir/main.cpp.obj: ../Read_CheckPoints.h
 CMakeFiles/Times_And_Planes.dir/main.cpp.obj: ../Read_Scheme.h
+CMakeFiles/Times_And_Planes.dir/main.cpp.obj: ../Scheme.h
 CMakeFiles/Times_And_Planes.dir/main.cpp.obj: ../main.cpp
 

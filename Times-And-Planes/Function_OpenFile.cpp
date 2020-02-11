@@ -26,4 +26,3 @@ ifstream openFile(const std::string &name_of_file)
 
     return openfile;
 }
-
