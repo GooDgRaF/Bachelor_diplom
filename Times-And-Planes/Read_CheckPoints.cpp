@@ -14,8 +14,7 @@ size_t k = 0;
 
 map<string,size_t> pointNameToID;
 
-vector<checkPoint> CheckPoints;
-void Read_CheckPoints(const string &name_of_file)
+void Read_CheckPoints(const std::string &name_of_file, vector<CheckPoint> &CheckPoints)
 {
     ifstream CheckPointFile;
 

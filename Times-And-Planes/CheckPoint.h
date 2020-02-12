@@ -7,7 +7,7 @@
 
 #include <string>
 
-struct checkPoint
+struct CheckPoint
 {
     std::string Name;
     double x;

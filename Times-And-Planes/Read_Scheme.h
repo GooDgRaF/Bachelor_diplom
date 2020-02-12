@@ -6,6 +6,13 @@
 #define TIMES_AND_PLANES_READ_SCHEME_H
 
 #include <string>
-void Read_Scheme(const std::string& name_of_file);
+#include <vector>
+#include "CheckPoint.h"
+#include "Scheme.h"
+
+using namespace std;
+
+
+void Read_Scheme(const string &name_of_file, vector <CheckPoint> &checkPoint, vector <Scheme> &scheme);
 
 #endif

@@ -8,9 +8,9 @@
 
 using namespace std;
 
-void Read_Scheme(const std::string& name_of_file)
+void Read_Scheme(const std::string &name_of_file, vector<CheckPoint> &checkPoint, vector<Scheme> &scheme)
 {
 
 
 
-};
+}
