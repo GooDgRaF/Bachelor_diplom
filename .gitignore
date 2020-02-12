@@ -34,4 +34,7 @@ cmake-build-debug/
 *.exe
 *.out
 *.app
-
+*.includecache
+*.obj
+*.a
+*.exe
