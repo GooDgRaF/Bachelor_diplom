@@ -10,12 +10,13 @@
 
 using namespace std;
 
-size_t k = 0;
 
-map<string,size_t> pointNameToID;
 
-void Read_CheckPoints(const std::string &name_of_file, vector<CheckPoint> &CheckPoints)
+void Read_CheckPoints(const std::string &name_of_file, std::vector<CheckPoint> &CheckPoints,
+                      std::map<string, size_t> &pointNameToID)
 {
+    size_t k = 0;
+
     ifstream CheckPointFile;
 
     CheckPointFile = openFile(name_of_file);

@@ -13,6 +13,7 @@
 using namespace std;
 
 
-void Read_Scheme(const string &name_of_file, vector <CheckPoint> &checkPoint, vector <Scheme> &scheme);
+void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, std::map<string, size_t> &pointNameToID,
+                 vector<Scheme> &scheme);
 
 #endif

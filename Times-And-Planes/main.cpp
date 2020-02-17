@@ -13,11 +13,13 @@ int main() {
     vector<CheckPoint> checkPoints;
     vector<Scheme> schemes;
 
-    string nameOfPointsFile = "CheckPointTest.txt";
-    Read_CheckPoints(nameOfPointsFile, checkPoints);
+    map<string,size_t> pointNameToID;
+
+    string nameOfPointsFile = "CheckPointTest1.txt";
+    Read_CheckPoints(nameOfPointsFile, checkPoints, pointNameToID);
 
     string nameOfSchemeFile = "SchemeTest.txt";
-    Read_Scheme(nameOfSchemeFile, checkPoints, schemes);
+    Read_Scheme(nameOfSchemeFile, checkPoints, pointNameToID, schemes);
 
 
     return 0;

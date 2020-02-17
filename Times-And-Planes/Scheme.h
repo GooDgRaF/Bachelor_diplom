@@ -9,14 +9,16 @@
 #include <vector>
 #include "CheckPoint.h"
 
+using namespace std;
+
 struct Scheme
 {
-    std::string name;
-    CheckPoint start;
-    std::vector<CheckPoint> middle;
-    std::vector<CheckPoint> straighteningFrom;
-    std::vector<CheckPoint> straighteningWhere;
-    CheckPoint end;
+    string name;
+    string start;
+    string end;
+    string middle;
+    string straighteningFrom;
+    string straighteningWhere;
 };
 
 #endif //TIMES_AND_PLANES_SCHEME_H
