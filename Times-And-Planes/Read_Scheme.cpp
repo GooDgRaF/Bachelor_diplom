@@ -39,6 +39,9 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, std
         scheme[i] = {res[1].str(), res[2].str(), res[3].str(),
                      res[4].str() + res[6].str() + res[7].str(),
                      res[6].str(), res[5].str()};
+        // scheme[i].name = ...
+        // scheme[i].start = ...
+
         i++;
 
     }

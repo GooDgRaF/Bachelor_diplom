@@ -7,15 +7,17 @@
 
 #include <string>
 
+using namespace std;
+
 struct CheckPoint
 {
-    std::string Name;
+    string Name;
     double x;
     double y;
     double z;
     double Vmin;
     double Vmax;
-    int Landing_flag;
+    int Landing_flag; // !!! bool
 };
 
 #endif //TIMES_AND_PLANES_CHECKPOINT_H
