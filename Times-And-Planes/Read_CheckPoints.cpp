@@ -10,10 +10,9 @@
 
 using namespace std;
 
+extern map<string, int> pointNameToID;
 
-
-void Read_CheckPoints(const std::string &name_of_file, std::vector<CheckPoint> &CheckPoints,
-                      std::map<string, size_t> &pointNameToID)
+void Read_CheckPoints(const std::string &name_of_file, std::vector<CheckPoint> &CheckPoints)
 {
     size_t k = 0;
 

@@ -10,4 +10,4 @@ add_executable(
         Read_Scheme.cpp Read_Scheme.h
         CheckPoint.h
         Scheme.h
-        Function_OpenFile.cpp Function_OpenFile.h)
+        Function_OpenFile.cpp Function_OpenFile.h Maps.h)

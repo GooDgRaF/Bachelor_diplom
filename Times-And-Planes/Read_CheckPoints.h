@@ -9,8 +9,7 @@
 #include <map>
 #include "CheckPoint.h"
 
-void Read_CheckPoints(const std::string &name_of_file, std::vector<CheckPoint> &CheckPoints,
-                      std::map<std::string, size_t> &pointNameToID);
+void Read_CheckPoints(const std::string &name_of_file, std::vector<CheckPoint> &CheckPoints);
 
 
 

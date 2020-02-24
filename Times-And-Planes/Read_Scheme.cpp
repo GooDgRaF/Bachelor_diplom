@@ -11,8 +11,10 @@
 
 using namespace std;
 
-void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, std::map<string, size_t> &pointNameToID,
-                 vector<Scheme> &scheme)
+extern map<string, int> pointNameToID;
+extern map<int, int> pointIDtoStartSchemeID;
+
+void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vector<Scheme> &scheme)
 {
     size_t k;
 
@@ -35,14 +37,47 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, std
     while (getline(SchemeFile,str))
     {
         regex_match(str.c_str(), res, regular);
+                
 
-        scheme[i] = {res[1].str(), res[2].str(), res[3].str(),
-                     res[4].str() + res[6].str() + res[7].str(),
-                     res[6].str(), res[5].str()};
-        // scheme[i].name = ...
-        // scheme[i].start = ...
+         scheme[i].name = res[1];
 
-        i++;
+         pointIDtoStartSchemeID[pointNameToID.find(res[1])->second] = i;
+
+         scheme[i].start = pointNameToID.find(res[2])->second;
+         scheme[i].end = pointNameToID.find(res[3])->second;
+
+         stringstream ssWhere(res[5]);
+         string s5;
+         while (ssWhere >> s5)
+         {
+             scheme[i].straighteningWhere.push_back(pointNameToID.find(s5)->second);
+         }
+
+         stringstream ssFrom(res[6]);
+         string s6;
+         while (ssFrom >> s6)
+         {
+             scheme[i].straighteningFrom.push_back(pointNameToID.find(s6)->second);
+         }
+
+         stringstream ssMid1(res[4]);
+         stringstream ssMid2(res[6]);
+         stringstream ssMid3(res[7]);
+         string sm1, sm2, sm3;
+         while (ssMid1 >> sm1)
+         {
+             scheme[i].middle.push_back(pointNameToID.find(sm1)->second);
+         }
+         while (ssMid2 >> sm2)
+         {
+             scheme[i].middle.push_back(pointNameToID.find(sm2)->second);
+         }
+         while (ssMid3 >> sm3)
+         {
+             scheme[i].middle.push_back(pointNameToID.find(sm3)->second);
+         }
+
+         i++;
 
     }
 

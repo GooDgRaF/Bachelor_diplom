@@ -14,11 +14,11 @@ using namespace std;
 struct Scheme
 {
     string name;
-    string start;               // int
-    string end;                 // int
-    string middle;              // vector<int>
-    string straighteningFrom;   // vector<int>
-    string straighteningWhere;  // vector<int>
+    int start;
+    int end;
+    vector<int> middle;
+    vector<int> straighteningFrom;
+    vector<int> straighteningWhere;
 };
 
 #endif //TIMES_AND_PLANES_SCHEME_H
