@@ -15,7 +15,7 @@ struct Scheme
 {
     string name;
     int start;
-    int end;
+    vector<int> end;
     vector<int> middle;
     vector<int> straighteningFrom;
     vector<int> straighteningWhere;

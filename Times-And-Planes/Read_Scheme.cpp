@@ -12,7 +12,7 @@
 using namespace std;
 
 extern map<string, int> pointNameToID;
-extern map<int, int> pointIDtoStartSchemeID;
+extern map<int, vector<int>> pointIDtoStartSchemeID;
 
 void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vector<Scheme> &scheme)
 {
@@ -25,6 +25,18 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vec
     SchemeFile >> k;
 
     scheme.resize(k);
+
+    /*
+     * Пояснение к регулярному выражению:
+     * Всего семь групп захвата
+     * NameA (POINT1)(POINT12 POINT13): POINT2 Str(POINT12 POINT13) POINT3 POINT4 POINT5 /Str POINT12
+     * 1) Название схемы [NameA]
+     * 2) Название точки начала схемы [POINT1]
+     * 3) Названия точек конца схемы [POINT12 POINT13]
+     * 4,6,7) Названия точек самой схемы [POINT2 + POINT3 POINT4 POINT5 + POINT12]
+     * 5) Названия точек куда можно спрямляться [POINT12 POINT13]
+     * 6) Названия точек откуда можно спрямляться [POINT3 POINT4 POINT5]
+     */
 
     string str;
     cmatch res;
@@ -41,10 +53,16 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vec
 
          scheme[i].name = res[1];
 
-         pointIDtoStartSchemeID[pointNameToID.find(res[1])->second] = i;
+         pointIDtoStartSchemeID[pointNameToID.find(res[2])->second].push_back(i);
 
          scheme[i].start = pointNameToID.find(res[2])->second;
-         scheme[i].end = pointNameToID.find(res[3])->second;
+
+         stringstream ssEnd(res[3]);
+         string sEnd;
+         while (ssEnd >> sEnd)
+         {
+             scheme[i].end.push_back(pointNameToID.find(res[3])->second);
+         }
 
          stringstream ssWhere(res[5]);
          string s5;
@@ -82,6 +100,9 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vec
     }
 
     SchemeFile.close();
+
+
+
 
 
 }

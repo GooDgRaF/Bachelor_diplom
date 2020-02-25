@@ -8,12 +8,10 @@
 
 using namespace std;
 
-
 int main() {
 
     vector<CheckPoint> checkPoints;
     vector<Scheme> schemes;
-
 
 
     string nameOfPointsFile = "CheckPointTest1.txt";

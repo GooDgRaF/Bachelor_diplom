@@ -6,11 +6,12 @@
 #define TIMES_AND_PLANES_MAPS_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
 map<string, int> pointNameToID;
-map<int, int> pointIDtoStartSchemeID;
+map<int, vector<int>> pointIDtoStartSchemeID;
 
 
 #endif //TIMES_AND_PLANES_MAPS_H
