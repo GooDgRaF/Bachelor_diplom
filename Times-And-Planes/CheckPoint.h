@@ -17,7 +17,7 @@ struct CheckPoint
     double z;
     double Vmin;
     double Vmax;
-    int Landing_flag; // !!! bool
+    bool Landing_flag;
 };
 
 #endif //TIMES_AND_PLANES_CHECKPOINT_H

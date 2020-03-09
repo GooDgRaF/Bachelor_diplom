@@ -12,7 +12,7 @@ using namespace std;
 
 extern map<string, int> pointNameToID;
 
-void Read_CheckPoints(const std::string &name_of_file, std::vector<CheckPoint> &CheckPoints)
+void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &CheckPoints)
 {
     size_t k = 0;
 
@@ -26,9 +26,12 @@ void Read_CheckPoints(const std::string &name_of_file, std::vector<CheckPoint> &
 
     for(size_t i = 0; i < k; i++)
     {
+        string tmp;
         CheckPointFile >> CheckPoints[i].Name >>
         CheckPoints[i].x >> CheckPoints[i].y >> CheckPoints[i].z >>
-        CheckPoints[i].Vmin >> CheckPoints[i].Vmax >> CheckPoints[i].Landing_flag;
+        CheckPoints[i].Vmin >> CheckPoints[i].Vmax;
+        CheckPointFile >> tmp;
+        CheckPoints[i].Landing_flag = tmp == "LAND" ;
         pointNameToID[CheckPoints[i].Name] = i;
     }
 
