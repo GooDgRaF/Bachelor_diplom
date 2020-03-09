@@ -8,6 +8,8 @@
 #include <fstream>
 #include "Scheme.h"
 #include "Function_OpenFile.h"
+#include "Function_Find-IN.h"
+#include "Function_Fill-scheme.h"
 
 using namespace std;
 
@@ -53,47 +55,19 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vec
 
          scheme[i].name = res[1];
 
-         pointIDtoStartSchemeID[pointNameToID.find(res[2])->second].push_back(i);
+         pointIDtoStartSchemeID[findValueINpointNameToID(res[2])].push_back(i);
 
-         scheme[i].start = pointNameToID.find(res[2])->second;
+         scheme[i].start = findValueINpointNameToID(res[2]);
 
-         stringstream ssEnd(res[3]);
-         string sEnd;
-         while (ssEnd >> sEnd)
-         {
-             scheme[i].end.push_back(pointNameToID.find(res[3])->second);
-         }
+         fillScheme(res[3], scheme[i].end);
 
-         stringstream ssWhere(res[5]);
-         string s5;
-         while (ssWhere >> s5)
-         {
-             scheme[i].straighteningWhere.push_back(pointNameToID.find(s5)->second);
-         }
+         fillScheme(res[5], scheme[i].straighteningWhere);
 
-         stringstream ssFrom(res[6]);
-         string s6;
-         while (ssFrom >> s6)
-         {
-             scheme[i].straighteningFrom.push_back(pointNameToID.find(s6)->second);
-         }
+         fillScheme(res[6], scheme[i].straighteningFrom);
 
-         stringstream ssMid1(res[4]);
-         stringstream ssMid2(res[6]);
-         stringstream ssMid3(res[7]);
-         string sm1, sm2, sm3;
-         while (ssMid1 >> sm1)
-         {
-             scheme[i].middle.push_back(pointNameToID.find(sm1)->second);
-         }
-         while (ssMid2 >> sm2)
-         {
-             scheme[i].middle.push_back(pointNameToID.find(sm2)->second);
-         }
-         while (ssMid3 >> sm3)
-         {
-             scheme[i].middle.push_back(pointNameToID.find(sm3)->second);
-         }
+         fillScheme(res[4], scheme[i].middle);
+         fillScheme(res[6], scheme[i].middle);
+         fillScheme(res[7], scheme[i].middle);
 
          i++;
 
