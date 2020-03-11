@@ -8,5 +8,9 @@ extern map<string, int> pointNameToID;
 
 int findValueINpointNameToID (const string& Key)
 {
+    if (pointNameToID.find(Key) == pointNameToID.end()) //Не удачный поиск, сообщить об ошибке
+    {
+        throw  Key;
+    }
     return pointNameToID.find(Key)->second;
 }

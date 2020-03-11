@@ -51,9 +51,12 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vec
     while (getline(SchemeFile,str))
     {
         regex_match(str.c_str(), res, regular);
-                
 
-         scheme[i].name = res[1];
+
+
+        try {
+
+        scheme[i].name = res[1];
 
          pointIDtoStartSchemeID[findValueINpointNameToID(res[2])].push_back(i);
 
@@ -68,6 +71,12 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vec
          fillScheme(res[4], scheme[i].middle);
          fillScheme(res[6], scheme[i].middle);
          fillScheme(res[7], scheme[i].middle);
+
+        }
+        catch(const char* ex)
+        {
+            cerr << "Can't find " << ex << " in line " << i << " among points";
+        }
 
          i++;
 
