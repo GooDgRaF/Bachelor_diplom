@@ -11,6 +11,7 @@ add_executable(Times_And_Planes
         Function_OpenFile.h
         main.cpp
         Maps.h
+        Maps.cpp
         Read_CheckPoints.cpp
         Read_CheckPoints.h
         Read_Scheme.cpp
