@@ -6,6 +6,7 @@
 #include <string>
 #include <regex>
 #include <fstream>
+#include "Maps.h"
 #include "Scheme.h"
 #include "Function_OpenFile.h"
 #include "Function_Find-IN.h"
@@ -13,16 +14,13 @@
 
 using namespace std;
 
-extern map<string, int> pointNameToID;
-extern map<int, vector<int>> pointIDtoStartSchemeID;
-
 void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vector<Scheme> &scheme)
 {
     size_t k;
 
     ifstream SchemeFile;
 
-    SchemeFile = openFile(name_of_file);
+    openFile(name_of_file, SchemeFile);
 
     SchemeFile >> k;
 

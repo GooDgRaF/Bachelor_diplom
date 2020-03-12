@@ -7,6 +7,8 @@
 
 #include <string>
 
-std::ifstream openFile(const std::string &name_of_file);
+using namespace std;
+
+void openFile(const string &name_of_file, ifstream &openfile);
 
 #endif //TIMES_AND_PLANES_FUNCTION_OPENFILE_H

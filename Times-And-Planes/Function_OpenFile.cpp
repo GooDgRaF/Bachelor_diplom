@@ -8,10 +8,8 @@
 
 using namespace std;
 
-ifstream openFile(const std::string &name_of_file)
+void openFile(const string &name_of_file, ifstream &openfile)
 {
-    ifstream openfile;
-
     openfile.open(name_of_file);
 
     if (openfile.is_open())
@@ -23,6 +21,4 @@ ifstream openFile(const std::string &name_of_file)
         cerr << "Error! Can't open file" << endl;
         exit(-1) ;
     }
-
-    return openfile;
 }

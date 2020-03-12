@@ -2,15 +2,15 @@
 // Created by Антон on 09.03.2020.
 //
 #include <map>
+#include "Maps.h"
 #include "Function_Find-IN.h"
-
-extern map<string, int> pointNameToID;
 
 int findValueINpointNameToID (const string& Key)
 {
-    if (pointNameToID.find(Key) == pointNameToID.end()) //Не удачный поиск, сообщить об ошибке
+    map<string,int>::iterator res = pointNameToID.find(Key);
+    if (res == pointNameToID.end()) //Неудачный поиск, сообщить об ошибке
     {
         throw  Key;
     }
-    return pointNameToID.find(Key)->second;
+    return res->second;
 }

@@ -7,7 +7,7 @@
 #include "Function_Find-IN.h"
 
 
-void fillScheme(string str, vector<int> &field)
+void fillScheme(const string &str, vector<int> &field)
 {
     stringstream ss(str);
     string tmp;

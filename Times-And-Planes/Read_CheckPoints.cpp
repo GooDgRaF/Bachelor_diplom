@@ -5,12 +5,12 @@
 #include <fstream>
 #include <map>
 #include <vector>
+#include "Maps.h"
 #include "CheckPoint.h"
 #include "Function_OpenFile.h"
 
 using namespace std;
 
-extern map<string, int> pointNameToID;
 
 void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &CheckPoints)
 {
@@ -18,7 +18,7 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &CheckPoint
 
     ifstream CheckPointFile;
 
-    CheckPointFile = openFile(name_of_file);
+    openFile(name_of_file, CheckPointFile);
 
     CheckPointFile >> k;
 

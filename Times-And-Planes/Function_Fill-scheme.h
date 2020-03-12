@@ -10,6 +10,6 @@
 
 using namespace std;
 
-void fillScheme(string str, vector<int> &field);
+void fillScheme(const string &str, vector<int> &field);
 
 #endif //TIMES_AND_PLANES_FUNCTION_FILL_SCHEME_H
