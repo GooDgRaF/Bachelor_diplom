@@ -8,9 +8,9 @@
 #include <fstream>
 #include "Maps.h"
 #include "Scheme.h"
-#include "Function_OpenFile.h"
-#include "Function_Find-IN.h"
-#include "Function_Fill-scheme.h"
+#include "Functions/Function_OpenFile.h"
+#include "Functions/Function_Find-IN.h"
+#include "Functions/Function_Fill-scheme.h"
 
 using namespace std;
 
