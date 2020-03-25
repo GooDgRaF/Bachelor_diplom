@@ -9,7 +9,7 @@
 #include "Maps.h"
 #include "Scheme.h"
 #include "Functions/Function_OpenFile.h"
-#include "Functions/Function_Find-IN.h"
+#include "Functions/Function_Find-InMap.h"
 #include "Functions/Function_Fill-scheme.h"
 
 using namespace std;
