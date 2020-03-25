@@ -7,6 +7,7 @@
 #include "Maps.h"
 #include "Flow.h"
 #include "Build_Flow.h"
+#include "Functions/Topologic_Sort.h"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ int main() {
     vector<Flow> flows (7);
 
 
-    string nameOfPointsFile = "CheckPointTest1.txt";
+    string nameOfPointsFile = "CheckPointTestTopSort.txt";
     Read_CheckPoints(nameOfPointsFile, checkPoints);
 
     string nameOfSchemeFile = "SchemeTest.txt";
@@ -25,6 +26,8 @@ int main() {
 
     flows[0].graph_of_flow.resize(checkPoints.size());//????
     Build_Flow(schemes, flows[0].graph_of_flow);
+
+    topologicalSort(flows[0].graph_of_flow, checkPoints.size());
 
 
 
