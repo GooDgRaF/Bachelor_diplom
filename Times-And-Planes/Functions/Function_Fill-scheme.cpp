@@ -4,7 +4,7 @@
 
 #include <sstream>
 #include "Function_Fill-scheme.h"
-#include "Function_Find-IN.h"
+#include "Function_Find-InMap.h"
 
 
 void fillScheme(const string &str, vector<int> &field)
