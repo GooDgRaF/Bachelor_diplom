@@ -14,7 +14,7 @@ void openFile(const string &name_of_file, ifstream &openfile)
 
     if (openfile.is_open())
     {
-        cout << "File is open!" << endl;
+        cout << "File " << name_of_file << " is open!" << endl;
     }
     else
     {
