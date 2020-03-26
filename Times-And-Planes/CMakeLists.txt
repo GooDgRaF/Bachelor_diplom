@@ -16,5 +16,5 @@ add_executable(Times_And_Planes
         Scheme.h Functions/Function_Find-InMap.cpp Functions/Function_Find-InMap.h
         Functions/Function_Fill-scheme.cpp      Functions/Function_Fill-scheme.h
         Build_Flow.cpp                          Build_Flow.h
-        Functions/Function_Find-InVector.cpp    Functions/Function_Find-InVector.h
+        Functions/Function_Find-InVector.h
         Functions/Topologic_Sort.cpp            Functions/Topologic_Sort.h)
