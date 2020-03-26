@@ -71,9 +71,9 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoint, vec
          fillScheme(res[7], scheme[i].middle);
 
         }
-        catch(const string &ex)
+        catch(const runtime_error &ex)
         {
-            cerr << "Can't find " << ex << " in line " << i+2 << " among points" << endl;
+            cerr << "Can't find " << ex.what() << " in line " << i+2 << " among points" << endl;
             exit(-2);
         }
 
