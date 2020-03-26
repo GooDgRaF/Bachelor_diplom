@@ -12,6 +12,7 @@ using namespace std;
 struct Flow
 {
     vector<vector<int>> graph_of_flow; //Задан списками Следующий
+    vector<int> keys;
 };
 
 
