@@ -27,7 +27,7 @@ int main() {
     flows[0].graph_of_flow.resize(checkPoints.size());//????
     Build_Flow(schemes, flows[0].graph_of_flow);
 
-    topologicalSort(flows[0].graph_of_flow, checkPoints.size());
+    topologicalSort(flows[0].graph_of_flow, flows[0].keys);
 
 
 
