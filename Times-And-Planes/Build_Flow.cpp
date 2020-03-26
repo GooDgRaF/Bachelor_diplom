@@ -49,7 +49,7 @@ void Build_Flow(vector<Scheme> &schemes, vector<vector<int>> &graph_of_flow)
 
     }
 
-    cout << "Build sucsses!"<< endl;
+    cout << "Build successes!"<< endl;
 
 
 
