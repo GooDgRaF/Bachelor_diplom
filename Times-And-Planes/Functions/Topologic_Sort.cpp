@@ -41,7 +41,7 @@ void topologicalSort(vector<vector<int>> &graph, vector<int> &keys)
 
 
 
-    cout << "Graph successfully sorted";
+    cout << "Graph successfully sorted" << endl;
 
 }
 
