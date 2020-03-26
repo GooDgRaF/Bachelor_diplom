@@ -11,7 +11,7 @@
 #include <iterator>
 
 using namespace std;
-void topologicalSort(vector<vector<int>> &graph, const int k);
+void topologicalSort(vector<vector<int>> &graph, vector<int> &keys);
 
 
 
