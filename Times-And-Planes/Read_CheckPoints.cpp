@@ -27,8 +27,23 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &CheckPoint
     for(size_t i = 0; i < k; i++)
     {
         string tmp;
-        CheckPointFile >> CheckPoints[i].Name >>
-        CheckPoints[i].x >> CheckPoints[i].y >> CheckPoints[i].z >>
+        CheckPointFile >> tmp;
+        try
+        {
+            for (const auto& el : CheckPoints)
+            {
+                if (el.Name == tmp)
+                  throw runtime_error(tmp);
+            }
+        }
+            catch(runtime_error &ex)
+            {
+                cerr << "Attention! " << ex.what() << " point occurs twice" << endl;
+                exit(-3);
+            }
+
+        CheckPoints[i].Name = tmp;
+        CheckPointFile >> CheckPoints[i].x >> CheckPoints[i].y >> CheckPoints[i].z >>
         CheckPoints[i].Vmin >> CheckPoints[i].Vmax;
         CheckPointFile >> tmp;
         CheckPoints[i].Landing_flag = tmp == "LAND" ;
