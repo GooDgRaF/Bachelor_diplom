@@ -5,12 +5,11 @@
 #include "Topologic_Sort.h"
 #include <iostream>
 
-void topologicalSort(vector<vector<int>> &graph, const int k)
+void topologicalSort(vector<vector<int>> &graph, vector<int> &keys)
 {
-
+    keys.resize(graph.size());
     int number = 0;
-    vector<int> DegIn(k, 0);
-    vector<int> Index(k,0);
+    vector<int> DegIn(graph.size(), 0);
     stack<int> ctek;
 
     for(auto & sons : graph)  //Ребра из v в w
@@ -28,21 +27,21 @@ void topologicalSort(vector<vector<int>> &graph, const int k)
             ctek.push(i);
         }
     }
-        while (!ctek.empty())
+    while (!ctek.empty())
+    {
+        int v;
+        v = ctek.top();ctek.pop();
+        keys[v] = number; number++;
+        for (int w : graph[v])
         {
-            int v;
-            v = ctek.top();ctek.pop();
-            Index[v] = number; number++;
-            for (int w : graph[v])
-            {
-                DegIn[w]--;
-                if (DegIn[w] == 0) {ctek.push(w);}
-            }
+            DegIn[w]--;
+            if (DegIn[w] == 0) {ctek.push(w);}
         }
+    }
 
 
 
-    for (const auto &element : Index){cout << element << " ";}cout<<endl<<endl;
-
+    cout << "Graph successfully sorted";
 
 }
+
