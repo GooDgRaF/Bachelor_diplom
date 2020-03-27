@@ -12,45 +12,59 @@
 using namespace std;
 
 
-void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &CheckPoints)
-{
-    size_t k = 0;
-
-    ifstream CheckPointFile;
-
-    openFile(name_of_file, CheckPointFile);
-
-    CheckPointFile >> k;
-
-    CheckPoints.resize(k);
-
-    for(size_t i = 0; i < k; i++)
+void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &checkPoints)
     {
-        string tmp;
-        CheckPointFile >> tmp;
-        try
+        size_t k = 0;
+
+        ifstream CheckPointFile;
+
+        openFile(name_of_file, CheckPointFile);
+
+        CheckPointFile >> k; //Первым лежит значение сколько точек всего
+
+        checkPoints.resize(k);
+
+        for (size_t i = 0; i < k; i++)
         {
-            for (const auto& el : CheckPoints)
+            string tmp;
+            CheckPointFile >> tmp;
+            for (const auto &el : checkPoints) //Проверка, чтобы две точки с одинаковым названием не встречались
             {
                 if (el.Name == tmp)
-                  throw runtime_error(tmp);
+                {
+                    cerr << "Attention! " << tmp << " point occurs twice" << endl;
+                    exit(-3);
+                }
+            }
+            checkPoints[i].Name = tmp;
+            CheckPointFile >> checkPoints[i].x >> checkPoints[i].y >> checkPoints[i].z >>
+                           checkPoints[i].Vmin >> checkPoints[i].Vmax;
+            CheckPointFile >> tmp;
+            checkPoints[i].Landing_flag = tmp == "LAND";
+            pointNameToID[checkPoints[i].Name] = i;
+        }
+
+        k = 0;
+        for (const auto &el : checkPoints) //Проверка, чтобы была точка с флагом посадки
+        {
+            if (el.Landing_flag == 0)
+            {
+                k++;
             }
         }
-            catch(runtime_error &ex)
-            {
-                cerr << "Attention! " << ex.what() << " point occurs twice" << endl;
-                exit(-3);
-            }
 
-        CheckPoints[i].Name = tmp;
-        CheckPointFile >> CheckPoints[i].x >> CheckPoints[i].y >> CheckPoints[i].z >>
-        CheckPoints[i].Vmin >> CheckPoints[i].Vmax;
-        CheckPointFile >> tmp;
-        CheckPoints[i].Landing_flag = tmp == "LAND" ;
-        pointNameToID[CheckPoints[i].Name] = i;
+        if (k == checkPoints.size()) //Проверка, чтобы была точка с флагом посадки
+        {
+            cerr << "Attention! " << "The LAND flag is not found among points in " << name_of_file;
+            exit(-4);
+        }
+        if (k < checkPoints.size() - 1) //Проверка, чтобы не было более одной точки с флагом посадки
+        {
+            cerr << "Attention! " << "In " << name_of_file << " LAND flag occurs more than one time";
+            exit(-5);
+        }
+
+        CheckPointFile.close();
+
     }
-
-    CheckPointFile.close();
-
-}
 
