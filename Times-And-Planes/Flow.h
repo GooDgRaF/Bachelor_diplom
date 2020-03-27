@@ -11,8 +11,8 @@ using namespace std;
 
 struct Flow
 {
-    vector<vector<int>> graph_of_flow; //Задан списками Следующий
-    vector<int> keys;
+    vector<vector<int>> graph_of_flow;
+    vector<int> keys; //Массив для значений вершин после топологической сортировки
 };
 
 
