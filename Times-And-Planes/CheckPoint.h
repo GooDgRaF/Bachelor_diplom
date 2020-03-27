@@ -11,13 +11,13 @@ using namespace std;
 
 struct CheckPoint
 {
-    string Name;
-    double x;
-    double y;
-    double z;
-    double Vmin;
-    double Vmax;
-    bool Landing_flag;
+	string Name;
+	double x;
+	double y;
+	double z;
+	double Vmin;
+	double Vmax;
+	bool Landing_flag;
 };
 
 #endif //TIMES_AND_PLANES_CHECKPOINT_H

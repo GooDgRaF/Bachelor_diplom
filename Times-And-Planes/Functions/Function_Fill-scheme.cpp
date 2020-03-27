@@ -8,11 +8,11 @@
 
 
 void fillScheme(const string &str, vector<int> &field)
-{
-    stringstream ss(str);
-    string tmp;
-    while (ss >> tmp)
-    {
-        field.push_back(findValueINpointNameToID(tmp));
-    }
-}
+	{
+		stringstream ss(str);
+		string tmp;
+		while (ss >> tmp)
+		{
+			field.push_back(findValueINpointNameToID(tmp));
+		}
+	}
