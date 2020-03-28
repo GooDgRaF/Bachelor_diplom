@@ -32,7 +32,7 @@ void topologicalSort(vector<vector<int>> &graph, vector<int> &keys)
 			int v;
 			v = st.top();
 			st.pop();
-			keys[v] = number;
+			keys[number] = v;
 			number++;
 			for (int w : graph[v])
 			{
