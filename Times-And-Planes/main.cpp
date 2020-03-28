@@ -1,48 +1,47 @@
 #include <iostream>
 #include <vector>
-#include "Read_/Read_CheckPoints.h"
-#include "Read_/Read_Scheme.h"
+#include "Read/Read_CheckPoints.h"
+#include "Read/Read_Scheme.h"
 #include "CheckPoint.h"
 #include "Scheme.h"
 #include "Maps.h"
 #include "Flow.h"
-#include "Build_/Build_Zone.h"
+#include "Build/Build_Zone.h"
 #include "Zone.h"
 #include "Functions/Topologic_Sort.h"
-#include "Read_/Read_Flow.h"
+#include "Read/Read_Flow.h"
 
 using namespace std;
 
 int main()
 	{
-		
-		vector<CheckPoint> checkPoints;
-		vector<Scheme> schemes;
-		vector<Flow> flows;
 		Zone zone;
 		
+		string nameOfPointsFile = "CheckPointTestTopSort.txt";
+		Read_CheckPoints(nameOfPointsFile, zone.checkPoints);
+		zone.list_of_descendants.resize(zone.checkPoints.size());
 		
-		string nameOfPointsFile = "CheckPointTestTwoFlows.txt";
-		Read_CheckPoints(nameOfPointsFile, checkPoints);
-		zone.graph.resize(checkPoints.size());
 		
-		
-		string nameOfSchemeFile = "SchemeTestTwoFlows.txt";
-		Read_Scheme(nameOfSchemeFile, checkPoints, schemes);
+		string nameOfSchemeFile = "SchemeTest.txt";
+		Read_Scheme(nameOfSchemeFile, zone.checkPoints, zone.schemes);
 		
 		
 		string nameOfFlowsFile = "TwoFlowsTest.txt";
-		Read_Flow(nameOfFlowsFile, flows);
+		//Read_Flow(nameOfFlowsFile, zone.flows);
 		
 		
-		Build_Zone(schemes, zone.graph);
+		Build_Zone(zone.schemes, zone.list_of_descendants);
 		
 		
-		//Методы для Zone: печать в разных вариантах
 		
-		zone.keys.resize(zone.graph.size());
-		topologicalSort(zone.graph, zone.keys);
+		zone.keys.resize(zone.list_of_descendants.size());
+		topologicalSort(zone.list_of_descendants, zone.keys);
 		
+		zone.print_keys();
+		zone.print_as_string();
+		zone.print_as_string(true);
+		zone.print_as_int();
+		zone.print_as_int(true);
 		
 		return 0;
 	}
