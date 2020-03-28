@@ -11,10 +11,13 @@ add_executable(Times_And_Planes
         Flow.h
         Functions/Function_OpenFile.cpp         Functions/Function_OpenFile.h
         Maps.h                                  Maps.cpp
-        Read_CheckPoints.cpp                    Read_CheckPoints.h
-        Read_Scheme.cpp                         Read_Scheme.h
+        Read_/Read_CheckPoints.cpp Read_/Read_CheckPoints.h
+        Read_/Read_Scheme.cpp Read_/Read_Scheme.h
         Scheme.h Functions/Function_Find-InMap.cpp Functions/Function_Find-InMap.h
         Functions/Function_Fill-scheme.cpp      Functions/Function_Fill-scheme.h
-        Build_Zone.cpp Build_Zone.h
+        Build_/Build_Zone.cpp                   Build_/Build_Zone.h
         Functions/Function_Find-InVector.h
-        Functions/Topologic_Sort.cpp            Functions/Topologic_Sort.h Zone.h)
+        Functions/Topologic_Sort.cpp            Functions/Topologic_Sort.h
+        Zone.h
+        Build_/Build_Flow.cpp                   Build_/Build_Flow.h
+        Read_/Read_Flow.cpp                     Read_/Read_Flow.h)
