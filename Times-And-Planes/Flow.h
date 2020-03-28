@@ -11,7 +11,9 @@ using namespace std;
 
 struct Flow
 {
-    vector<vector<int>> graph_of_flow;
+	string name;
+	int start_point;
+    vector<vector<int>> graph; //Подграф графа Zone, так же заданный списками Следующий
     vector<int> keys; //Массив для значений вершин после топологической сортировки
 };
 
