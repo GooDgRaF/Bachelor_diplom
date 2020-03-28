@@ -19,14 +19,14 @@ void Build_Zone(const vector<Scheme> &schemes, vector<vector<int>> &graph_of_zon
             {
                 graph_of_zone[scheme.path[i]].push_back(scheme.path[i + 1]); //Соединить текущую точку со следующей
 
-                /*Пояснение к следующему if:
+                /*
                 *Если с текущей точки возможно спрямление и следующая точка не является конечной точкой спрямления
                 *Пояснение ко второй части if : Пример схема типа веер. Из её предпоследней точки можно спрямиться на центральную,
-                *а так же можно проследовать по пути, чтобы не повторяться существует проверка
+                *а также можно проследовать по пути, чтобы не повторяться существует проверка
                 */
 
                 if ((findInVector(scheme.straighteningFrom, scheme.path[i])
-                     & (!findInVector(scheme.straighteningWhere, scheme.path[i + 1]))))
+                     && (!findInVector(scheme.straighteningWhere, scheme.path[i + 1]))))
                 {
                     for (const auto &str : scheme.straighteningWhere) //Соединить текущую точку со всеми точками на которые возможно спрямление
                     {
