@@ -18,7 +18,7 @@ void openFile(const string &name_of_file, ifstream &openfile)
     }
     else
     {
-        cerr << "Error! Can't open file" << endl;
+        cerr << "Error! Can't open " << name_of_file << endl;
         exit(-1) ;
     }
 }
