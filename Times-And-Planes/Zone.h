@@ -6,14 +6,24 @@
 #define TIMES_AND_PLANES_ZONE_H
 
 #include <vector>
+#include <algorithm>
 #include "CheckPoint.h"
+
 
 using namespace std;
 
 struct Zone
 {
-	vector<vector<int>> graph; //Задан списками Следующий
+	vector<vector<int>> list_of_descendants; //Граф зоны задан списками Следующий
 	vector<int> keys; //Массив для значений вершин после топологической сортировки
+	vector<CheckPoint> checkPoints;
+	vector<Scheme> schemes;
+	vector<Flow> flows;
+	
+	int Index_of(vector<int> &v, int a)
+		{
+			return distance(v.begin(), find(v.begin(), v.end(), a));
+		}
 	
 	void print_keys()
 		{
@@ -25,12 +35,12 @@ struct Zone
 			
 		}
 	
-	void print_as_string(vector<CheckPoint> &checkPoints)
+	void print_as_string()
 		{
-			for (int i = 0; i < graph.size(); ++i)
+			for (int i = 0; i < list_of_descendants.size(); ++i)
 			{
 				cout << checkPoints[i].Name << " --> ";
-				for (auto el : graph[i])
+				for (auto el : list_of_descendants[i])
 				{
 					cout << checkPoints[el].Name << " ";
 				}
@@ -39,14 +49,14 @@ struct Zone
 			cout << endl;
 		}
 	
-	/*void print_as_string(vector<CheckPoint> &checkPoints, bool sort)
+	void print_as_string(bool sort)
 		{
 			if (sort == true)
 			{
-				for (int i = 0; i < graph.size(); ++i)
+				for (int i = 0; i < list_of_descendants.size(); ++i)
 				{
 					cout << checkPoints[keys[i]].Name << " --> ";
-					for (auto el : graph[keys[i]])
+					for (auto el : list_of_descendants[keys[i]])
 					{
 						cout << checkPoints[el].Name << " ";
 					}
@@ -56,16 +66,16 @@ struct Zone
 			}
 			else
 			{
-				print_as_string(checkPoints);
+				print_as_string();
 			}
-		}*/ //Хелп
+		}
 	
-	void print_as_int(vector<CheckPoint> &checkPoints)
+	void print_as_int()
 		{
-			for (int i = 0; i < graph.size(); ++i)
+			for (int i = 0; i < list_of_descendants.size(); ++i)
 			{
 				cout << pointNameToID[checkPoints[i].Name] << " --> ";
-				for (auto el : graph[i])
+				for (auto el : list_of_descendants[i])
 				{
 					cout << pointNameToID[checkPoints[el].Name] << " ";
 				}
@@ -74,16 +84,16 @@ struct Zone
 			cout << endl;
 		}
 	
-	/*void print_as_int(vector<CheckPoint> &checkPoints, bool sort)
+	void print_as_int(bool sort)
 		{
 			if (sort == true)
 			{
-				for (int i = 0; i < graph.size(); ++i)
+				for (int i = 0; i < list_of_descendants.size(); ++i)
 				{
-					cout << keys[i] << " --> ";
-					for (auto el : graph[keys[i]])
+					cout << i << " --> ";
+					for (auto el : list_of_descendants[keys[i]])
 					{
-						cout << keys[el] << " ";
+						cout << Index_of(keys, el) << " ";
 					}
 					cout << endl;
 				}
@@ -91,9 +101,9 @@ struct Zone
 			}
 			else
 			{
-				print_as_int(checkPoints);
+				print_as_int();
 			}
-		}*/ //Хелп
+		}
 };
 
 
