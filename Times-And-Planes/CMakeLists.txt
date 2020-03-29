@@ -18,6 +18,7 @@ add_executable(Times_And_Planes
         Build/Build_Zone.cpp Build/Build_Zone.h
         Functions/Function_Find-InVector.h
         Functions/Topologic_Sort.cpp            Functions/Topologic_Sort.h
-        Zone.h
+        Zone.h        Zone.cpp
         Build/Build_Flow.cpp        Build/Build_Flow.h
-        Read/Read_Flow.cpp        Read/Read_Flow.h)
+        Read/Read_Flow.cpp        Read/Read_Flow.h
+        )
