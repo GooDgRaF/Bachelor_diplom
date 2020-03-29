@@ -55,7 +55,7 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &checkPoint
 		
 		if (k == checkPoints.size()) //Проверка, чтобы была точка с флагом посадки
 		{
-			cerr << "Attention! " << "The LAND flag is not found among points in " << name_of_file;
+			cerr << "Attention! " << "The LAND flag is not found among points in " << name_of_file << endl;
 			exit(-4);
 		}
 		if (k < checkPoints.size() - 1) //Проверка, чтобы не было более одной точки с флагом посадки
