@@ -30,18 +30,18 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &checkPoint
 			CheckPointFile >> tmp;
 			for (const auto &el : checkPoints) //Проверка, чтобы две точки с одинаковым названием не встречались
 			{
-				if (el.Name == tmp)
+				if (el.name == tmp)
 				{
 					cerr << "Attention! " << tmp << " point occurs twice" << endl;
 					exit(-3);
 				}
 			}
-			checkPoints[i].Name = tmp;
+			checkPoints[i].name = tmp;
 			CheckPointFile >> checkPoints[i].x >> checkPoints[i].y >> checkPoints[i].z >>
 						   checkPoints[i].Vmin >> checkPoints[i].Vmax;
 			CheckPointFile >> tmp;
 			checkPoints[i].Landing_flag = tmp == "LAND";
-			pointNameToID[checkPoints[i].Name] = i;
+			pointNameToID[checkPoints[i].name] = i;
 		}
 		
 		k = 0;
