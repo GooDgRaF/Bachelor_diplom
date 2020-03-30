@@ -10,6 +10,7 @@
 #include "Zone.h"
 #include "Functions/Topologic_Sort.h"
 #include "Read/Read_Flow.h"
+#include "Build/Build_Flow.h"
 
 using namespace std;
 
@@ -17,31 +18,33 @@ int main()
 	{
 		Zone zone;
 		
-		string nameOfPointsFile = "CheckPointTestTopSort.txt";
+		string nameOfPointsFile = R"(E:\Works\Diplom\Bachelor_diplom\Points\CheckPointTestTwoFlowsTopSort.txt)";
 		Read_CheckPoints(nameOfPointsFile, zone.checkPoints);
-		zone.list_of_descendants.resize(zone.checkPoints.size());
+		zone.graph_of_descendants.resize(zone.checkPoints.size());
 		
 		
-		string nameOfSchemeFile = "SchemeTest.txt";
+		string nameOfSchemeFile = R"(E:\Works\Diplom\Bachelor_diplom\Schemes\SchemeTestTwoFlows.txt)";
 		Read_Scheme(nameOfSchemeFile, zone.checkPoints, zone.schemes);
 		
 		
-		string nameOfFlowsFile = "TwoFlowsTest.txt";
-		//Read_Flow(nameOfFlowsFile, zone.flows);
+		string nameOfFlowsFile = R"(E:\Works\Diplom\Bachelor_diplom\Flows\TwoFlowsTest.txt)";
+		Read_Flow(nameOfFlowsFile, zone.flows);
 		
 		
-		Build_Zone(zone.schemes, zone.list_of_descendants);
+		Build_Zone(zone.schemes, zone.graph_of_descendants);
+		
+		Build_Flow(zone,zone.flows[0],zone.flows[0].start_point);
+		Build_Flow(zone,zone.flows[1],zone.flows[1].start_point);
 		
 		
+		topologicalSort(zone.flows[0].graph_of_descendants,zone.flows[0].keys);
+		topologicalSort(zone.flows[1].graph_of_descendants,zone.flows[1].keys);
+
+		zone.print_flows_keys();
+		zone.print_flows_as_string();
+		zone.print_flows_as_string(true);
 		
-		zone.keys.resize(zone.list_of_descendants.size());
-		topologicalSort(zone.list_of_descendants, zone.keys);
-		
-		zone.print_keys();
-		zone.print_as_string();
-		zone.print_as_string(true);
-		zone.print_as_int();
-		zone.print_as_int(true);
+
 		
 		return 0;
 	}
