@@ -4,63 +4,22 @@
 
 #include "Topologic_Sort.h"
 #include <iostream>
+#include <Flow.h>
 
-void topologicalSort(vector<vector<int>> &graph, vector<int> &keys)
+void topologicalSort_of_flow(Flow &flow)
 	{
-		keys.resize(graph.size());
-		int number = 0;
-		vector<int> DegIn(graph.size(), 0);
-		stack<int> st;
-		
-		for (auto &sons : graph)  //Ребра из v в w
-		{
-			for (int w : sons)
-			{
-				DegIn[w] = DegIn[w] + 1;
-			}
-		}
-		
-		for (int i = 0; i < graph.size(); i++)
-		{
-			if (DegIn[i] == 0)
-			{
-				st.push(i);
-			}
-		}
-		while (!st.empty())
-		{
-			int v;
-			v = st.top();
-			st.pop();
-			keys[number] = v;
-			number++;
-			for (int w : graph[v])
-			{
-				DegIn[w]--;
-				if (DegIn[w] == 0)
-				{ st.push(w); }
-			}
-		}
-		
-		
-		cout << "Graph successfully sorted!" << endl;
-		
-	}
-	
-void topologicalSort(map<int, vector<int>> &graph, vector<int> &keys)
-	{
-		keys.resize(graph.size());
+		flow.keys.resize(flow.graph_of_descendants.size());
 		int number = 0;
 		
 		map<int, int> DegIn;
-		for (auto &pair : graph)
+		for (auto &pair : flow.graph_of_descendants)
 		{
-			DegIn.emplace(pair.first,0);
+			DegIn.emplace(pair.first, 0);
 		} //Инициализируем отображение Точка --> полустепень захода
 		
 		stack<int> st;
 		
-		for (auto &pair : graph)  //Заполняем отображение Точка --> полустепень захода
+		for (auto &pair : flow.graph_of_descendants)  //Заполняем отображение Точка --> полустепень захода
 		{
 			for (int w : pair.second)
 			{
@@ -68,7 +27,7 @@ void topologicalSort(map<int, vector<int>> &graph, vector<int> &keys)
 			}
 		}
 		
-		for (auto &pair : graph) //Складываем на стек все вершины с нулевой полустепенью захода
+		for (auto &pair : flow.graph_of_descendants) //Складываем на стек все вершины с нулевой полустепенью захода
 		{
 			if (DegIn[pair.first] == 0)
 			{
@@ -81,18 +40,18 @@ void topologicalSort(map<int, vector<int>> &graph, vector<int> &keys)
 			int v;
 			v = st.top();
 			st.pop();
-			keys[number] = v;
+			flow.keys[number] = v;
 			number++;
-			for (int w : graph[v])
+			for (int son : flow.graph_of_descendants[v])
 			{
-				DegIn[w]--;
-				if (DegIn[w] == 0)
-				{ st.push(w); }
+				DegIn[son]--;
+				if (DegIn[son] == 0)
+				{ st.push(son); }
 			}
 		}
 		
 		
-		cout << "Graph successfully sorted!" << endl;
+		cout << flow.name << " successfully sorted!" << endl;
 		
 	}
 
