@@ -37,7 +37,7 @@ void Build_Zone(const vector<Scheme> &schemes, vector<vector<int>> &graph_of_zon
 
         }
 
-        cout << "Build successes!" << endl;
+        cout << "Build zone successes!" << endl;
 
 
     }
