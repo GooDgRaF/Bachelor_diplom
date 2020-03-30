@@ -11,7 +11,7 @@ using namespace std;
 
 struct CheckPoint
 {
-	string Name;
+	string name;
 	double x;
 	double y;
 	double z;
