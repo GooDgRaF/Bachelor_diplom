@@ -9,10 +9,13 @@
 #include <algorithm>
 #include <stack>
 #include <iterator>
+#include <map>
 
 using namespace std;
+
 void topologicalSort(vector<vector<int>> &graph, vector<int> &keys);
 
+void topologicalSort(map<int, vector<int>> &graph, vector<int> &keys);
 
 
 #endif //TIMES_AND_PLANES_TOPOLOGIC_SORT_H
