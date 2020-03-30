@@ -8,7 +8,7 @@
 using namespace std;
 
 #include <vector>
-void Build_Flow(Zone &zone, Flow &flow, int start_of_flow);
+void Build_Flow(Zone &zone, Flow &flow);
 
 
 #endif //TIMES_AND_PLANES_BUILD_FLOW_H
