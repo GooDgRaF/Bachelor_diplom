@@ -8,11 +8,6 @@
 using namespace std;
 
 
-int Zone::Index_of(vector<int> &v, int a)
-	{
-		return distance(v.begin(), find(v.begin(), v.end(), a));
-	}
-
 void Zone::print_flows_keys()
 	{
 		for (auto &flow : flows)
@@ -43,41 +38,27 @@ void Zone::print_as_string()
 	{
 		for (int i = 0; i < graph_of_descendants.size(); ++i)
 		{
-			cout << checkPoints[i].Name << " --> ";
+			cout << checkPoints[i].name << " --> ";
 			for (auto el : graph_of_descendants[i])
 			{
-				cout << checkPoints[el].Name << " ";
+				cout << checkPoints[el].name << " ";
 			}
 			cout << endl;
 		}
 		cout << endl;
 	}
 
-void Zone::print_as_int()
-	{
-		for (int i = 0; i < graph_of_descendants.size(); ++i)
-		{
-			cout << pointNameToID[checkPoints[i].Name] << " --> ";
-			for (auto el : graph_of_descendants[i])
-			{
-				cout << pointNameToID[checkPoints[el].Name] << " ";
-			}
-			cout << endl;
-		}
-		cout << endl;
-	}
-
-void Zone::print_flows_as_string()
+void Zone::print_flows_as_string_des()
 	{
 		for (auto &flow : flows)
 		{
 			cout << flow.name << ": " << endl;
 			for (auto &vertex : flow.graph_of_descendants)
 			{
-				cout << checkPoints[vertex.first].Name << " --> ";
+				cout << checkPoints[vertex.first].name << " --> ";
 				for (auto el : vertex.second)
 				{
-					cout << checkPoints[el].Name << " ";
+					cout << checkPoints[el].name << " ";
 				}
 				cout << endl;
 			}
@@ -87,7 +68,7 @@ void Zone::print_flows_as_string()
 		
 	}
 
-void Zone::print_flows_as_string(bool sort)
+void Zone::print_flows_as_string_des(bool sort)
 	{
 		if (sort == true)
 		{
@@ -97,10 +78,10 @@ void Zone::print_flows_as_string(bool sort)
 				cout << flow.name << ": " << endl;
 				for (int key : flow.keys)
 				{
-					cout << checkPoints[key].Name << " --> ";
+					cout << checkPoints[key].name << " --> ";
 					for (auto &el : flow.graph_of_descendants[key])
 					{
-						cout << checkPoints[el].Name << " ";
+						cout << checkPoints[el].name << " ";
 					}
 					cout << endl;
 				}
@@ -110,8 +91,28 @@ void Zone::print_flows_as_string(bool sort)
 		}
 		else
 		{
-			print_flows_as_string();
+			print_flows_as_string_des();
 		}
+	}
+
+void Zone::print_flows_as_string_anc()
+	{
+		for (auto &flow : flows)
+		{
+			cout << flow.name << ": " << endl;
+			for (auto &vertex : flow.graph_of_ancestors)
+			{
+				cout << checkPoints[vertex.first].name << " <-- ";
+				for (auto el : vertex.second)
+				{
+					cout << checkPoints[el].name << " ";
+				}
+				cout << endl;
+			}
+			cout << endl;
+		}
+		cout << endl;
+		
 	}
 
 
