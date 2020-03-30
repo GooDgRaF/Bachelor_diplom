@@ -21,19 +21,17 @@ struct Zone
 	vector<Scheme> schemes;
 	vector<Flow> flows;
 	
-	int Index_of(vector<int> &v, int a);
-	
 	void print_flows_keys();
 	
 	void print_key_of_flow(int number_of_flow);
 	
 	void print_as_string();
 	
-	void print_as_int();
+	void print_flows_as_string_des();
 	
-	void print_flows_as_string();
+	void print_flows_as_string_anc();
 	
-	void print_flows_as_string(bool sort);
+	void print_flows_as_string_des(bool sort);
 };
 
 
