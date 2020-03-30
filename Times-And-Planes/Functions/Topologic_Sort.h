@@ -10,12 +10,11 @@
 #include <stack>
 #include <iterator>
 #include <map>
+#include <Flow.h>
 
 using namespace std;
 
-void topologicalSort(vector<vector<int>> &graph, vector<int> &keys);
-
-void topologicalSort(map<int, vector<int>> &graph, vector<int> &keys);
+void topologicalSort_of_flow(Flow &flow);
 
 
 #endif //TIMES_AND_PLANES_TOPOLOGIC_SORT_H
