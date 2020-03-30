@@ -8,102 +8,32 @@
 #include <vector>
 #include <algorithm>
 #include "CheckPoint.h"
+#include "Scheme.h"
+#include "Flow.h"
 
 
 using namespace std;
 
 struct Zone
 {
-	vector<vector<int>> list_of_descendants; //Граф зоны задан списками Следующий
-	vector<int> keys; //Массив для значений вершин после топологической сортировки
+	vector<vector<int>> graph_of_descendants; //Граф зоны задан списками Следующий
 	vector<CheckPoint> checkPoints;
 	vector<Scheme> schemes;
 	vector<Flow> flows;
 	
-	int Index_of(vector<int> &v, int a)
-		{
-			return distance(v.begin(), find(v.begin(), v.end(), a));
-		}
+	int Index_of(vector<int> &v, int a);
 	
-	void print_keys()
-		{
-			for (auto el : keys)
-			{
-				cout << el << " ";
-			}
-			cout << endl;
-			
-		}
+	void print_flows_keys();
 	
-	void print_as_string()
-		{
-			for (int i = 0; i < list_of_descendants.size(); ++i)
-			{
-				cout << checkPoints[i].Name << " --> ";
-				for (auto el : list_of_descendants[i])
-				{
-					cout << checkPoints[el].Name << " ";
-				}
-				cout << endl;
-			}
-			cout << endl;
-		}
+	void print_key_of_flow(int number_of_flow);
 	
-	void print_as_string(bool sort)
-		{
-			if (sort == true)
-			{
-				for (int i = 0; i < list_of_descendants.size(); ++i)
-				{
-					cout << checkPoints[keys[i]].Name << " --> ";
-					for (auto el : list_of_descendants[keys[i]])
-					{
-						cout << checkPoints[el].Name << " ";
-					}
-					cout << endl;
-				}
-				cout << endl;
-			}
-			else
-			{
-				print_as_string();
-			}
-		}
+	void print_as_string();
 	
-	void print_as_int()
-		{
-			for (int i = 0; i < list_of_descendants.size(); ++i)
-			{
-				cout << pointNameToID[checkPoints[i].Name] << " --> ";
-				for (auto el : list_of_descendants[i])
-				{
-					cout << pointNameToID[checkPoints[el].Name] << " ";
-				}
-				cout << endl;
-			}
-			cout << endl;
-		}
+	void print_as_int();
 	
-	void print_as_int(bool sort)
-		{
-			if (sort == true)
-			{
-				for (int i = 0; i < list_of_descendants.size(); ++i)
-				{
-					cout << i << " --> ";
-					for (auto el : list_of_descendants[keys[i]])
-					{
-						cout << Index_of(keys, el) << " ";
-					}
-					cout << endl;
-				}
-				cout << endl;
-			}
-			else
-			{
-				print_as_int();
-			}
-		}
+	void print_flows_as_string();
+	
+	void print_flows_as_string(bool sort);
 };
 
 
