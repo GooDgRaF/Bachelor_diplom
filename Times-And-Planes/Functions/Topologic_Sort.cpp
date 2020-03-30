@@ -46,4 +46,53 @@ void topologicalSort(vector<vector<int>> &graph, vector<int> &keys)
 		cout << "Graph successfully sorted!" << endl;
 		
 	}
+	
+void topologicalSort(map<int, vector<int>> &graph, vector<int> &keys)
+	{
+		keys.resize(graph.size());
+		int number = 0;
+		
+		map<int, int> DegIn;
+		for (auto &pair : graph)
+		{
+			DegIn.emplace(pair.first,0);
+		} //Инициализируем отображение Точка --> полустепень захода
+		
+		stack<int> st;
+		
+		for (auto &pair : graph)  //Заполняем отображение Точка --> полустепень захода
+		{
+			for (int w : pair.second)
+			{
+				DegIn[w] = DegIn[w] + 1;
+			}
+		}
+		
+		for (auto &pair : graph) //Складываем на стек все вершины с нулевой полустепенью захода
+		{
+			if (DegIn[pair.first] == 0)
+			{
+				st.push(pair.first);
+			}
+		}
+		
+		while (!st.empty())
+		{
+			int v;
+			v = st.top();
+			st.pop();
+			keys[number] = v;
+			number++;
+			for (int w : graph[v])
+			{
+				DegIn[w]--;
+				if (DegIn[w] == 0)
+				{ st.push(w); }
+			}
+		}
+		
+		
+		cout << "Graph successfully sorted!" << endl;
+		
+	}
 
