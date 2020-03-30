@@ -18,12 +18,12 @@ int main()
 	{
 		Zone zone;
 		
-		string nameOfPointsFile = R"(E:\Works\Diplom\Bachelor_diplom\Points\CheckPointTestTwoFlowsTopSort.txt)";
+		string nameOfPointsFile = R"(E:\Works\Diplom\Bachelor_diplom\Points\CheckPointTestTwoFlowsTopSort.txt)";//TwoFlowsTopSort
 		Read_CheckPoints(nameOfPointsFile, zone.checkPoints);
 		zone.graph_of_descendants.resize(zone.checkPoints.size());
 		
 		
-		string nameOfSchemeFile = R"(E:\Works\Diplom\Bachelor_diplom\Schemes\SchemeTestTwoFlows.txt)";
+		string nameOfSchemeFile = R"(E:\Works\Diplom\Bachelor_diplom\Schemes\SchemeTestTwoFlows.txt)";//TwoFlows
 		Read_Scheme(nameOfSchemeFile, zone.checkPoints, zone.schemes);
 		
 		
@@ -33,16 +33,21 @@ int main()
 		
 		Build_Zone(zone.schemes, zone.graph_of_descendants);
 		
-		Build_Flow(zone,zone.flows[0],zone.flows[0].start_point);
-		Build_Flow(zone,zone.flows[1],zone.flows[1].start_point);
+		for (auto &flow : zone.flows)
+		{
+			Build_Flow(zone, flow);
+		}
 		
-		
-		topologicalSort(zone.flows[0].graph_of_descendants,zone.flows[0].keys);
-		topologicalSort(zone.flows[1].graph_of_descendants,zone.flows[1].keys);
+		for (auto &flow : zone.flows)
+		{
+			topologicalSort_of_flow(flow);
+		}
+	
 
-		zone.print_flows_keys();
-		zone.print_flows_as_string();
-		zone.print_flows_as_string(true);
+	zone.print_flows_keys();
+		zone.print_flows_as_string_des();
+		zone.print_flows_as_string_anc();
+		zone.print_flows_as_string_des(true);
 		
 
 		
