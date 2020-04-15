@@ -9,6 +9,6 @@
 
 using namespace std;
 
-void mergeTimes(vector<pair<int, int>> &times);
+void mergeTimes(vector<pair<double, double>> &times);
 
 #endif //TIMES_AND_PLANES_FUNCTION_MERGETIMES_H

@@ -18,7 +18,7 @@ struct CheckPoint
 	double Vmin;
 	double Vmax; //В км/ч
 	bool Landing_flag;
-	vector<pair<int, int>> times; //Набор временных интервалов (Tmin, Tmax) в секундах
+	vector<pair<double, double>> times; //Набор временных интервалов (Tmin, Tmax) в секундах
 };
 
 #endif //TIMES_AND_PLANES_CHECKPOINT_H

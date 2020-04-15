@@ -32,6 +32,8 @@ struct Zone
 	void print_flows_as_string_anc();
 	
 	void print_flows_as_string_des(bool sort);
+	
+	void print_times();
 };
 
 

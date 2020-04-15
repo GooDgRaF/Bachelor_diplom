@@ -6,9 +6,9 @@
 #include <map>
 #include <iostream>
 
-void mergeTimes(vector<pair<int, int>> &times)
+void mergeTimes(vector<pair<double, double >> &times)
 	{
-		map<int, int> valueAction; //Значение - действие
+		map<double, double> valueAction; //Значение - действие
 		for (auto pair : times)
 		{
 			if (pair.first > pair.second)
@@ -22,9 +22,9 @@ void mergeTimes(vector<pair<int, int>> &times)
 		
 		times.clear();
 		
-		int sum = 0;
+		double sum = 0;
 		auto itMap = valueAction.begin();
-		int start = itMap->first;
+		double start = itMap->first;
 		for (itMap = valueAction.begin(); itMap != valueAction.end(); itMap++)
 		{
 			sum = sum + itMap->second;

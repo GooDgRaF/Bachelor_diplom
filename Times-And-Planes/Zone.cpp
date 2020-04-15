@@ -114,5 +114,28 @@ void Zone::print_flows_as_string_anc()
 		cout << endl;
 		
 	}
+	
+	void Zone::print_times()
+		{
+			for (auto &flow : flows)
+			{
+				cout << flow.name << ": " << endl;
+				for (int key : flow.keys)
+				{
+					cout << checkPoints[key].name << " --> ";
+					for (auto &el : flow.graph_of_descendants[key])
+					{
+						for(auto &pair : checkPoints[el].times)
+						{
+							cout << "[" << pair.first << ", " << pair.second << "] ";
+						}
+						cout << endl;
+					}
+					cout << endl;
+				}
+				cout << endl;
+			}
+			cout << endl;
+		}
 
 
