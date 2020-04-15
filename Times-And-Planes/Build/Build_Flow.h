@@ -8,6 +8,7 @@
 using namespace std;
 
 #include <vector>
+#include "Zone.h"
 void Build_Flow(Zone &zone, Flow &flow);
 
 
