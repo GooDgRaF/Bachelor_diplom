@@ -21,4 +21,6 @@ add_executable(Times_And_Planes
         Zone.h        Zone.cpp
         Build/Build_Flow.cpp        Build/Build_Flow.h
         Read/Read_Flow.cpp        Read/Read_Flow.h
-        )
+        "Stage -1.cpp"        "Stage -1.h"
+        "Calculating times.cpp"        "Calculating times.h"
+        Functions/Function_MergeTimes.cpp        Functions/Function_MergeTimes.h)
