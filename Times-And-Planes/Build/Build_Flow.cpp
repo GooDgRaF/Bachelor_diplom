@@ -5,12 +5,14 @@
 #include <stack>
 #include <iostream>
 #include "Zone.h"
-#include "Build_Flow.h"
 
 
 void Build_Flow(Zone &zone, Flow &flow)
 	{
 		int start_of_flow = flow.start_point;
+		
+		zone.checkPoints[start_of_flow].times.push_back({0,0}); //Выставляем начальной точке потока времена по нулям
+		
 		stack<int> st;
 		st.push(start_of_flow);
 		vector<bool> mark(zone.graph_of_descendants.size(), false);
