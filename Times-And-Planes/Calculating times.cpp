@@ -5,17 +5,23 @@
 #include "Calculating times.h"
 #include "Functions/Function_MergeTimes.h"
 #include <cmath>
+#include <iostream>
 
 void calculateTimes(Zone &zone, Flow &flow)
 	{
 		for (int i = 0; i < flow.graph_of_descendants.size(); i++)
 		{
-			mergeTimes(zone.checkPoints[flow.keys[i]].times);
+			try
+			{
+				mergeTimes(zone.checkPoints[flow.keys[i]].times);
+			}
+			catch (runtime_error &er)
+			{ cout << er.what() << " on " << zone.checkPoints[flow.keys[i]].name; }
 			
 			
 			double x0 = zone.checkPoints[flow.keys[i]].x;
 			double y0 = zone.checkPoints[flow.keys[i]].y;
-			double z0 = zone.checkPoints[flow.keys[i]].z;
+			double z0 = zone.checkPoints[flow.keys[i]].z / 1000;//Метры в км
 			double vmin0 = zone.checkPoints[flow.keys[i]].Vmin;
 			double vmax0 = zone.checkPoints[flow.keys[i]].Vmax;
 			
@@ -25,7 +31,7 @@ void calculateTimes(Zone &zone, Flow &flow)
 				
 				double x1 = zone.checkPoints[son].x;
 				double y1 = zone.checkPoints[son].y;
-				double z1 = zone.checkPoints[son].z;
+				double z1 = zone.checkPoints[son].z / 1000;//Метры в км
 				double vmin1 = zone.checkPoints[son].Vmin;
 				double vmax1 = zone.checkPoints[son].Vmax;
 				
@@ -36,9 +42,11 @@ void calculateTimes(Zone &zone, Flow &flow)
 				tmin = 2 * S / (vmax0 + vmax1);
 				tmax = 2 * S / (vmin0 + vmin1);
 				
-				zone.checkPoints[flow.keys[i + 1]].times.push_back({{tmin},
-																	{tmax}});
+				for (auto pair : zone.checkPoints[flow.keys[i]].times)
+				{
+					zone.checkPoints[son].times.push_back({{pair.first + tmin},
+														   {pair.second + tmax}});
+				}
 			}
-			
 		}
 	}
