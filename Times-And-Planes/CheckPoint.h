@@ -13,12 +13,12 @@ struct CheckPoint
 {
 	string name;
 	double x; //В кимлометрах
-	double y;
-	double z;
+	double y; //В километрах
+	double z; //В метрах
 	double Vmin;
 	double Vmax; //В км/ч
 	bool Landing_flag;
-	vector<pair<double, double>> times; //Набор временных интервалов (Tmin, Tmax) в секундах
+	vector<pair<double, double>> times; //Набор временных интервалов (Tmin, Tmax) в минутах
 };
 
 #endif //TIMES_AND_PLANES_CHECKPOINT_H
