@@ -11,15 +11,19 @@ int main()
 	{
 		Zone zone;
 		
-		string nameOfPointsFile = R"(E:\Works\Diplom\Bachelor_diplom\Points\CheckPointEzTimeTest.txt)";//TwoFlowsTopSort
-		string nameOfSchemeFile = R"(E:\Works\Diplom\Bachelor_diplom\Schemes\SchemeEzTimeTest.txt)";//TwoFlows
-		string nameOfFlowsFile = R"(E:\Works\Diplom\Bachelor_diplom\Flows\EzFlowTimeTest.txt)";
+		string nameOfPointsFile = R"(E:\Works\Diplom\Bachelor_diplom\Points\CheckPointTestTwoFlowsTopSort.txt)";//CheckPointEzTimeTest.txt TwoFlowsTopSort
+		string nameOfSchemeFile = R"(E:\Works\Diplom\Bachelor_diplom\Schemes\SchemeTestTwoFlows.txt)";//SchemeEzTimeTest.txt TwoFlows
+		string nameOfFlowsFile = R"(E:\Works\Diplom\Bachelor_diplom\Flows\TwoFlowsTest.txt)"; //EzFlowTimeTest.txt
 		
 		stage_negative_one(nameOfPointsFile, nameOfSchemeFile, nameOfFlowsFile, zone);
 		
-		calculateTimes(zone,zone.flows[0]);
+		for (auto &flow : zone.flows)
+		{
+			calculateTimes(zone, flow);
+		}
+		
 		zone.print_times();
-
+		
 		
 		return 0;
 	}
