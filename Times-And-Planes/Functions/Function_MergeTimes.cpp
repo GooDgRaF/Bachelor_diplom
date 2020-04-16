@@ -13,7 +13,7 @@ void mergeTimes(vector<pair<double, double >> &times)
 		{
 			if (pair.first > pair.second)
 			{
-				throw runtime_error("Warning first element of pair is bigger than second");
+				throw runtime_error("Warning: first element of pair is bigger than second");
 			}
 			
 			valueAction[pair.first]++;
