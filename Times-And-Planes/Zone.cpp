@@ -2,6 +2,7 @@
 // Created by Антон on 29.03.2020.
 //
 #include <iostream>
+#include <cmath>
 #include "Zone.h"
 #include "Maps.h"
 
@@ -114,28 +115,25 @@ void Zone::print_flows_as_string_anc()
 		cout << endl;
 		
 	}
-	
-	void Zone::print_times()
+
+void Zone::print_times()
+	{
+		for (auto &flow : flows)
 		{
-			for (auto &flow : flows)
+			cout << flow.name << ": " << endl;
+			for (int key : flow.keys)
 			{
-				cout << flow.name << ": " << endl;
-				for (int key : flow.keys)
+				cout << checkPoints[key].name << " --> ";
+				for (auto &pair : checkPoints[key].times)
 				{
-					cout << checkPoints[key].name << " --> ";
-					for (auto &el : flow.graph_of_descendants[key])
-					{
-						for(auto &pair : checkPoints[el].times)
-						{
-							cout << "[" << pair.first << ", " << pair.second << "] ";
-						}
-						cout << endl;
-					}
-					cout << endl;
+					cout << "[" << round(pair.first * 60 * 100) / 100 << ", " << round(pair.second * 60 * 100) / 100
+						 << "] ";
 				}
 				cout << endl;
 			}
 			cout << endl;
 		}
+		cout << endl;
+	}
 
 
