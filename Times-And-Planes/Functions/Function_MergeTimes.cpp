@@ -6,12 +6,32 @@
 #include <map>
 #include <iostream>
 
-void mergeTimes(vector<pair<double, double >> &times)
+double epsilon = 0.0001;
+
+struct doubleCompLess
+{
+	bool operator()(const double a, const double b)
+		{
+			return (abs(a - b) >= epsilon) && (a < b);
+		}
+};
+
+struct doubleCompGreater
+{
+	bool operator()(const double a, const double b)
+		{
+			return (abs(a - b) >= epsilon) && (a > b);
+		}
+};
+
+
+void mergeTimes(vector<pair<double, double>> &times)
 	{
-		map<double, double> valueAction; //Значение - действие
+		doubleCompGreater compGr;
+		map<double, double, doubleCompLess> valueAction; //Значение - действие
 		for (auto pair : times)
 		{
-			if (pair.first > pair.second)
+			if (compGr(pair.first, pair.second))
 			{
 				throw runtime_error("Warning: first element of pair is bigger than second");
 			}
@@ -31,9 +51,12 @@ void mergeTimes(vector<pair<double, double >> &times)
 			if (sum == 0)
 			{
 				times.push_back({start, itMap->first});
-				itMap++;
-				start = itMap->first;
-				itMap--;
+				if (itMap != valueAction.end())
+				{
+					itMap++;
+					start = itMap->first;
+					itMap--;
+				}
 			}
 		}
 		
