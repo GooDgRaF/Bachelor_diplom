@@ -16,7 +16,10 @@ void calculateTimes(Zone &zone, Flow &flow)
 				mergeTimes(zone.checkPoints[flow.keys[i]].times);
 			}
 			catch (runtime_error &er)
-			{ cout << er.what() << " on " << zone.checkPoints[flow.keys[i]].name; }
+			{
+				cerr << er.what() << " on " << zone.checkPoints[flow.keys[i]].name << endl;
+				exit(-5);
+			}
 			
 			
 			double x0 = zone.checkPoints[flow.keys[i]].x;
@@ -44,8 +47,8 @@ void calculateTimes(Zone &zone, Flow &flow)
 				
 				for (auto pair : zone.checkPoints[flow.keys[i]].times)
 				{
-					zone.checkPoints[son].times.push_back({{pair.first + tmin},
-														   {pair.second + tmax}});
+					zone.checkPoints[son].times.push_back({pair.first + tmin,
+														   pair.second + tmax});
 				}
 			}
 		}
