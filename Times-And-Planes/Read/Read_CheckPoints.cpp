@@ -36,9 +36,20 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &checkPoint
 					exit(-3);
 				}
 			}
+			double x,y,z,vmin,vmax;
+			
 			checkPoints[i].name = tmp;
-			CheckPointFile >> checkPoints[i].x >> checkPoints[i].y >> checkPoints[i].z >>
-						   checkPoints[i].Vmin >> checkPoints[i].Vmax;
+			CheckPointFile >> x >> y >> z >> vmin >> vmax;
+			
+			checkPoints[i].x = Coordinate::createKMs(x);
+			checkPoints[i].y = Coordinate::createKMs(y); //В зависимости от исходных данных
+			checkPoints[i].z = Coordinate::createMs(z);
+			
+			
+			checkPoints[i].Vmin = vmin;
+			checkPoints[i].Vmax = vmax;
+		
+			
 			CheckPointFile >> tmp;
 			checkPoints[i].Landing_flag = tmp == "LAND";
 			pointNameToID[checkPoints[i].name] = i;

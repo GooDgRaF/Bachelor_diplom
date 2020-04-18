@@ -6,15 +6,16 @@
 #define TIMES_AND_PLANES_CHECKPOINT_H
 
 #include <string>
+#include <Measure units/Coordinate.h>
 
 using namespace std;
 
 struct CheckPoint
 {
 	string name;
-	double x; //В кимлометрах
-	double y; //В километрах
-	double z; //В метрах
+	Coordinate x = Coordinate::createMs(0); //В километрах
+	Coordinate y = Coordinate::createMs(0); //В километрах
+	Coordinate z = Coordinate::createMs(0); //В метрах
 	double Vmin;
 	double Vmax; //В км/ч
 	bool Landing_flag;

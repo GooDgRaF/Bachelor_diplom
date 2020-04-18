@@ -8,9 +8,14 @@
 
 class Coordinate
 {
-	double ms; //В метрах
-	double Kms; // В километрах
-	double NMs; // В морских милях
+	double ms = 0; //В метрах
+	double Kms = 0; // В километрах
+	double NMs = 0; // В морских милях
+	
+	static constexpr double ms2Kms = 1000;
+	static constexpr double ms2NMs = 1852;
+	
+	Coordinate(double d);
 
 public:
 	double getMs() const;
@@ -18,6 +23,12 @@ public:
 	double getKms() const;
 	
 	double getNMs() const;
+	
+	static Coordinate createMs(double ms);
+	
+	static Coordinate createKMs(double kms);
+	
+	static Coordinate createNMs(double nms);
 	
 };
 

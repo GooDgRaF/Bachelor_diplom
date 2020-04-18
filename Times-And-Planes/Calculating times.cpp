@@ -22,9 +22,9 @@ void calculateTimes(Zone &zone, Flow &flow)
 			}
 			
 			
-			double x0 = zone.checkPoints[flow.keys[i]].x;
-			double y0 = zone.checkPoints[flow.keys[i]].y;
-			double z0 = zone.checkPoints[flow.keys[i]].z / 1000;//Метры в км
+			double x0 = zone.checkPoints[flow.keys[i]].x.getKms();
+			double y0 = zone.checkPoints[flow.keys[i]].y.getKms();
+			double z0 = zone.checkPoints[flow.keys[i]].z.getKms();
 			double vmin0 = zone.checkPoints[flow.keys[i]].Vmin;
 			double vmax0 = zone.checkPoints[flow.keys[i]].Vmax;
 			
@@ -32,9 +32,9 @@ void calculateTimes(Zone &zone, Flow &flow)
 			for (auto son : flow.graph_of_descendants[flow.keys[i]])
 			{
 				
-				double x1 = zone.checkPoints[son].x;
-				double y1 = zone.checkPoints[son].y;
-				double z1 = zone.checkPoints[son].z / 1000;//Метры в км
+				double x1 = zone.checkPoints[son].x.getKms();
+				double y1 = zone.checkPoints[son].y.getKms();
+				double z1 = zone.checkPoints[son].z.getKms();
 				double vmin1 = zone.checkPoints[son].Vmin;
 				double vmax1 = zone.checkPoints[son].Vmax;
 				
