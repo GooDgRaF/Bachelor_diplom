@@ -46,8 +46,8 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &checkPoint
 			checkPoints[i].z = Coordinate::createMs(z);
 			
 			
-			checkPoints[i].Vmin = vmin;
-			checkPoints[i].Vmax = vmax;
+			checkPoints[i].Vmin = Velocity::createVkm_h(vmin);
+			checkPoints[i].Vmax = Velocity::createVkm_h(vmax);
 		
 			
 			CheckPointFile >> tmp;

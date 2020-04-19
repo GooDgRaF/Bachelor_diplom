@@ -7,19 +7,21 @@
 
 #include <string>
 #include <Measure units/Coordinate.h>
+#include <Measure units/Velocity.h>
+#include <Measure units/Time.h>
 
 using namespace std;
 
 struct CheckPoint
 {
 	string name;
-	Coordinate x = Coordinate::createMs(0); //В километрах
-	Coordinate y = Coordinate::createMs(0); //В километрах
-	Coordinate z = Coordinate::createMs(0); //В метрах
-	double Vmin;
-	double Vmax; //В км/ч
+	Coordinate x = Coordinate::createMs(0);
+	Coordinate y = Coordinate::createMs(0);
+	Coordinate z = Coordinate::createMs(0);
+	Velocity Vmin = Velocity::createVkm_h(0);
+	Velocity Vmax = Velocity::createVkm_h(0);
 	bool Landing_flag;
-	vector<pair<double, double>> times; //Набор временных интервалов (Tmin, Tmax) в минутах
+	vector<pair<double , double >> times;//Набор временных интервалов (Tmin, Tmax)
 };
 
 #endif //TIMES_AND_PLANES_CHECKPOINT_H
