@@ -26,15 +26,15 @@ Coordinate Coordinate::createMs(double ms)
 
 Coordinate::Coordinate(double d)
 	{
-		ms = d; Kms = d/ms2Kms; NMs = d/ms2NMs;
+		ms = d; Kms = d / Km2ms; NMs = d / NMs2ms;
 	}
 
 Coordinate Coordinate::createKMs(double kms)
 	{
-		return {kms*ms2Kms};
+		return {kms * Km2ms};
 	}
 
 Coordinate Coordinate::createNMs(double nms)
 	{
-		return {nms*ms2NMs};
+		return {nms * NMs2ms};
 	}

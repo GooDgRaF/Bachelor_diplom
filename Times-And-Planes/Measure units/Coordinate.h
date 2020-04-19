@@ -12,8 +12,8 @@ class Coordinate
 	double Kms = 0; // В километрах
 	double NMs = 0; // В морских милях
 	
-	static constexpr double ms2Kms = 1000;
-	static constexpr double ms2NMs = 1852;
+	static constexpr double Km2ms = 1000;
+	static constexpr double NMs2ms = 1852;
 	
 	Coordinate(double d);
 
