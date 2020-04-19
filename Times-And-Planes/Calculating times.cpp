@@ -25,8 +25,8 @@ void calculateTimes(Zone &zone, Flow &flow)
 			double x0 = zone.checkPoints[flow.keys[i]].x.getKms();
 			double y0 = zone.checkPoints[flow.keys[i]].y.getKms();
 			double z0 = zone.checkPoints[flow.keys[i]].z.getKms();
-			double vmin0 = zone.checkPoints[flow.keys[i]].Vmin;
-			double vmax0 = zone.checkPoints[flow.keys[i]].Vmax;
+			double vmin0 = zone.checkPoints[flow.keys[i]].Vmin.getVkm_h();
+			double vmax0 = zone.checkPoints[flow.keys[i]].Vmax.getVkm_h();
 			
 			
 			for (auto son : flow.graph_of_descendants[flow.keys[i]])
@@ -35,8 +35,8 @@ void calculateTimes(Zone &zone, Flow &flow)
 				double x1 = zone.checkPoints[son].x.getKms();
 				double y1 = zone.checkPoints[son].y.getKms();
 				double z1 = zone.checkPoints[son].z.getKms();
-				double vmin1 = zone.checkPoints[son].Vmin;
-				double vmax1 = zone.checkPoints[son].Vmax;
+				double vmin1 = zone.checkPoints[son].Vmin.getVkm_h();
+				double vmax1 = zone.checkPoints[son].Vmax.getVkm_h();
 				
 				
 				double S = sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2) + pow(z1 - z0, 2));  //sqt((x1-x0)^2+...)
