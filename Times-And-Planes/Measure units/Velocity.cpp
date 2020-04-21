@@ -16,7 +16,7 @@ double Velocity::getVm_s() const
 
 double Velocity::getVkm_h() const
 	{
-		return v/m_s2km_s;
+		return v / m_s2km_s;
 	}
 
 double Velocity::getVnm_h() const
@@ -32,4 +32,9 @@ Velocity Velocity::createVm_s(double m_s)
 Velocity Velocity::createVkm_h(double km_h)
 	{
 		return {km_h * m_s2km_s};
+	}
+
+Velocity operator/(const Coordinate &x, const Time &t)
+	{
+		return Velocity::createVm_s(x.getMs() / t.getTsec());
 	}

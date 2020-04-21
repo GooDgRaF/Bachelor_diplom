@@ -6,6 +6,9 @@
 #define TIMES_AND_PLANES_VELOCITY_H
 
 
+#include "Coordinate.h"
+#include "Time.h"
+
 class Velocity
 {
 	double v = 0; //В м/с
@@ -28,7 +31,7 @@ public:
 	
 };
 
-
+Velocity operator/(const Coordinate &x, const Time &t);
 
 
 #endif //TIMES_AND_PLANES_VELOCITY_H
