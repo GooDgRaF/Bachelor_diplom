@@ -6,23 +6,20 @@
 #define TIMES_AND_PLANES_TIME_H
 
 
-#include "Coordinate.h"
-#include "Velocity.h"
-
 class Time
 {
 	double t;
 	
 	static constexpr double min2sec = 60;
 	
-	Time(const double d);
+	Time(double d);
 
 public:
 	double getTsec() const;
 	
 	double getTmin() const;
 	
-	double getTmin(double round_to) const;
+	double getTmin(const double &round_to) const;
 	
 	static Time createTsec(double sec);
 	
@@ -33,12 +30,6 @@ public:
 	Time operator-();
 	
 };
-Time operator+(const Time t0, const Time t1);
-
-Time operator-(const Time t0, const Time t1);
-
-Time operator/(const Coordinate x, const Velocity v);
-
 
 
 #endif //TIMES_AND_PLANES_TIME_H

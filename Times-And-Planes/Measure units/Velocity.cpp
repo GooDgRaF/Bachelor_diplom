@@ -3,6 +3,7 @@
 //
 
 #include "Velocity.h"
+#include "Coordinate.h"
 
 Velocity::Velocity(double d)
 	{

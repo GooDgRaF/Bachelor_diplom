@@ -3,6 +3,7 @@
 //
 
 #include "Coordinate.h"
+#include "Velocity.h"
 #include <cmath>
 
 double Coordinate::getMs() const
@@ -60,12 +61,12 @@ Coordinate operator-(const Coordinate &a, const Coordinate &b)
 		return Coordinate::createMs(a.getMs() - b.getMs());
 	}
 
-Coordinate operator*(const Time t, const Velocity v)
+Coordinate operator*(const Time &t, const Velocity &v)
 	{
 		return Coordinate::createMs(t.getTsec()*v.getVm_s());
 	}
 
-Coordinate operator*(const Velocity v, const Time t)
+Coordinate operator*(const Velocity &v, const Time &t)
 	{
 		return {t*v};
 	}

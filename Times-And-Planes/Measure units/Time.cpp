@@ -4,6 +4,8 @@
 
 #include <cmath>
 #include "Time.h"
+#include "Coordinate.h"
+#include "Velocity.h"
 
 Time::Time(double d)
 	{
@@ -20,7 +22,7 @@ double Time::getTmin() const
 		return t / min2sec;
 	}
 
-double Time::getTmin(double round_to) const
+double Time::getTmin(const double &round_to) const
 	{
 		return round(t / min2sec * round_to) / round_to;
 	}
@@ -45,17 +47,17 @@ Time Time::operator-()
 		return {-t};
 	}
 
-Time operator/(const Coordinate x, const Velocity v)
+Time operator/(const Coordinate &x, const Velocity &v)
 	{
 		return Time::createTsec(x.getMs() / v.getVm_s());
 	}
 
-Time operator+(const Time t0, const Time t1)
+Time operator+(const Time &t0, const Time &t1)
 	{
 		return Time::createTsec(t0.getTsec() + t1.getTsec());
 	}
 
-Time operator-(const Time t0, const Time t1)
+Time operator-(const Time &t0, const Time &t1)
 	{
 		return Time::createTsec(t0.getTsec() - t1.getTsec());
 	}

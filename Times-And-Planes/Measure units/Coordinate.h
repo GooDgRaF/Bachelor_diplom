@@ -36,17 +36,6 @@ public:
 	
 };
 
-Coordinate operator+(const Coordinate &a, const Coordinate &b);
-
-Coordinate operator-(const Coordinate &a, const Coordinate &b);
-
-Coordinate operator*(const Time t, const Velocity v);
-
-Coordinate operator*(const Velocity v, const Time t);
-
-Coordinate pow(Coordinate x, int a);
-
-Coordinate sqrt(Coordinate x);
 
 
 #endif //TIMES_AND_PLANES_COORDINATE_H

@@ -6,8 +6,7 @@
 #define TIMES_AND_PLANES_VELOCITY_H
 
 
-#include "Coordinate.h"
-#include "Time.h"
+
 
 class Velocity
 {
@@ -30,8 +29,6 @@ public:
 	double getVnm_h() const;
 	
 };
-
-Velocity operator/(const Coordinate &x, const Time &t);
 
 
 #endif //TIMES_AND_PLANES_VELOCITY_H
