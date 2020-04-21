@@ -12,12 +12,13 @@ class Coordinate
 {
 	double ms; //В метрах
 	
-	static constexpr double Km2ms = 1000;
-	static constexpr double NMs2ms = 1852;
-	
 	Coordinate(double d);
 
 public:
+	static constexpr double Km2ms = 1000;
+	
+	static constexpr double NMs2ms = 1852;
+	
 	double getMs() const;
 	
 	double getKms() const;
@@ -35,7 +36,6 @@ public:
 	Coordinate operator-();
 	
 };
-
 
 
 #endif //TIMES_AND_PLANES_COORDINATE_H

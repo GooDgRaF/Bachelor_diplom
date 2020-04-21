@@ -80,3 +80,13 @@ Coordinate sqrt(Coordinate x)
 	{
 		return Coordinate::createMs(std::sqrt(x.getMs()));
 	}
+
+Coordinate operator*(const Coordinate &x, const int &a)
+	{
+		return Coordinate::createMs(x.getMs() * a);
+	}
+
+Coordinate operator*(const int &a, const Coordinate &x)
+	{
+		return Coordinate::createMs(a * x.getMs());
+	}

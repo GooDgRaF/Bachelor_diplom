@@ -4,17 +4,19 @@
 
 #ifndef TIMES_AND_PLANES_TIME_H
 #define TIMES_AND_PLANES_TIME_H
-
+#include "iostream"
 
 class Time
 {
-	double t;
-	
-	static constexpr double min2sec = 60;
+	double time;
 	
 	Time(double d);
 
 public:
+	static constexpr double min2sec = 60;
+	
+	static constexpr double epsilon = 0.0001; //Точность сравнения
+	
 	double getTsec() const;
 	
 	double getTmin() const;
@@ -28,6 +30,8 @@ public:
 	Time operator+();
 	
 	Time operator-();
+	
+	friend std::ostream& operator<<(std::ostream &out, const Time &t);
 	
 };
 

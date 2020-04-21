@@ -126,8 +126,7 @@ void Zone::print_times()
 				cout << checkPoints[key].name << " --> ";
 				for (auto &pair : checkPoints[key].times)
 				{
-					cout << "[" << round(pair.first * 60 * 100) / 100 << ", " << round(pair.second * 60 * 100) / 100
-						 << "] ";
+					cout << "[" << pair.first << ", " << pair.second << "] ";
 				}
 				cout << endl;
 			}

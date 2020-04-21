@@ -7,24 +7,25 @@
 #include "Coordinate.h"
 #include "Velocity.h"
 
+
 Time::Time(double d)
 	{
-		t = d;
+		time = d;
 	}
 
 double Time::getTsec() const
 	{
-		return t;
+		return time;
 	}
 
 double Time::getTmin() const
 	{
-		return t / min2sec;
+		return time / min2sec;
 	}
 
 double Time::getTmin(const double &round_to) const
 	{
-		return round(t / min2sec * round_to) / round_to;
+		return round(time / min2sec * round_to) / round_to;
 	}
 
 Time Time::createTsec(double sec)
@@ -39,12 +40,19 @@ Time Time::createTmin(double min)
 
 Time Time::operator+()
 	{
-		return {t};
+		return {time};
 	}
 
 Time Time::operator-()
 	{
-		return {-t};
+		return {-time};
+	}
+
+std::ostream &operator<<(std::ostream &out, const Time &t)
+	{
+		//out << t.time << " sec";
+		out << t.getTmin(100) << " min";
+		return out;
 	}
 
 Time operator/(const Coordinate &x, const Velocity &v)

@@ -11,7 +11,7 @@ void Build_Flow(Zone &zone, Flow &flow)
 	{
 		int start_of_flow = flow.start_point;
 		
-		zone.checkPoints[start_of_flow].times.push_back({0,0}); //Выставляем начальной точке потока времена по нулям
+		zone.checkPoints[start_of_flow].times.push_back({Time::createTsec(0),Time::createTsec(0)}); //Выставляем начальной точке потока времена по нулям
 		
 		stack<int> st;
 		st.push(start_of_flow);

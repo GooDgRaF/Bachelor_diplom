@@ -10,14 +10,15 @@
 
 class Velocity
 {
-	double v = 0; //В м/с
-	
-	static constexpr double m_s2km_s = 3.6;
-	static constexpr double m_s2nm_h = 1.94;
+	double velocity = 0; //В м/с
 	
 	Velocity(double d);
 
 public:
+	static constexpr double m_s2km_h = 3.6;
+	
+	static constexpr double m_s2nm_h = 1.94;
+	
 	double getVm_s() const;
 	
 	static Velocity createVm_s(double m_s);
@@ -29,6 +30,8 @@ public:
 	double getVnm_h() const;
 	
 };
+
+
 
 
 #endif //TIMES_AND_PLANES_VELOCITY_H

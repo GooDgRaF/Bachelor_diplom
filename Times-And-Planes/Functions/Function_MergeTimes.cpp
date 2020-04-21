@@ -3,11 +3,13 @@
 //
 
 #include "Function_MergeTimes.h"
+
 #include <map>
 #include <iostream>
 
 double epsilon = 0.0001;
 
+/*
 struct doubleCompLess
 {
 	bool operator()(const double a, const double b)
@@ -23,12 +25,12 @@ struct doubleCompGreater
 			return (abs(a - b) >= epsilon) && (a > b);
 		}
 };
+*/
 
-
-void mergeTimes(vector<pair<double, double>> &times)
+void mergeTimes(vector<pair<Time, Time>> &times)
 	{
-		doubleCompGreater compGr;
-		map<double, double, doubleCompLess> valueAction; //Значение - действие
+		compGreater compGr;
+		map<Time, int, compLess> valueAction; //Значение - действие
 		for (auto pair : times)
 		{
 			if (compGr(pair.first, pair.second))
@@ -42,9 +44,9 @@ void mergeTimes(vector<pair<double, double>> &times)
 		
 		times.clear();
 		
-		double sum = 0;
+		int sum = 0;
 		auto itMap = valueAction.begin();
-		double start = itMap->first;
+		Time start = itMap->first;
 		for (itMap = valueAction.begin(); itMap != valueAction.end(); itMap++)
 		{
 			sum = sum + itMap->second;

@@ -10,6 +10,7 @@
 #include "CheckPoint.h"
 #include "Scheme.h"
 #include "Flow.h"
+#include "Measure units/MeasureUnits.h"
 
 
 using namespace std;
