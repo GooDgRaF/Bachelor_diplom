@@ -3,6 +3,7 @@
 //
 
 #include "Coordinate.h"
+#include <cmath>
 
 double Coordinate::getMs() const
 	{
@@ -11,12 +12,12 @@ double Coordinate::getMs() const
 
 double Coordinate::getKms() const
 	{
-		return Kms;
+		return ms / Km2ms;
 	}
 
 double Coordinate::getNMs() const
 	{
-		return NMs;
+		return ms / NMs2ms;
 	}
 
 Coordinate Coordinate::createMs(double ms)
@@ -26,7 +27,7 @@ Coordinate Coordinate::createMs(double ms)
 
 Coordinate::Coordinate(double d)
 	{
-		ms = d; Kms = d / Km2ms; NMs = d / NMs2ms;
+		ms = d;
 	}
 
 Coordinate Coordinate::createKMs(double kms)
@@ -37,4 +38,44 @@ Coordinate Coordinate::createKMs(double kms)
 Coordinate Coordinate::createNMs(double nms)
 	{
 		return {nms * NMs2ms};
+	}
+
+Coordinate Coordinate::operator+()
+	{
+		return {ms};
+	}
+
+Coordinate Coordinate::operator-()
+	{
+		return {-ms};
+	}
+
+Coordinate operator+(const Coordinate &a, const Coordinate &b)
+	{
+		return Coordinate::createMs(a.getMs() + b.getMs());
+	}
+
+Coordinate operator-(const Coordinate &a, const Coordinate &b)
+	{
+		return Coordinate::createMs(a.getMs() - b.getMs());
+	}
+
+Coordinate operator*(const Time t, const Velocity v)
+	{
+		return Coordinate::createMs(t.getTsec()*v.getVm_s());
+	}
+
+Coordinate operator*(const Velocity v, const Time t)
+	{
+		return {t*v};
+	}
+
+Coordinate pow(Coordinate x, int a)
+	{
+		return Coordinate::createMs(std::pow(x.getMs(),a));
+	}
+
+Coordinate sqrt(Coordinate x)
+	{
+		return Coordinate::createMs(std::sqrt(x.getMs()));
 	}

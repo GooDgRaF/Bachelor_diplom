@@ -6,11 +6,11 @@
 #define TIMES_AND_PLANES_COORDINATE_H
 
 
+#include "Time.h"
+
 class Coordinate
 {
-	double ms = 0; //В метрах
-	double Kms = 0; // В километрах
-	double NMs = 0; // В морских милях
+	double ms; //В метрах
 	
 	static constexpr double Km2ms = 1000;
 	static constexpr double NMs2ms = 1852;
@@ -30,7 +30,23 @@ public:
 	
 	static Coordinate createNMs(double nms);
 	
+	Coordinate operator+();
+	
+	Coordinate operator-();
+	
 };
+
+Coordinate operator+(const Coordinate &a, const Coordinate &b);
+
+Coordinate operator-(const Coordinate &a, const Coordinate &b);
+
+Coordinate operator*(const Time t, const Velocity v);
+
+Coordinate operator*(const Velocity v, const Time t);
+
+Coordinate pow(Coordinate x, int a);
+
+Coordinate sqrt(Coordinate x);
 
 
 #endif //TIMES_AND_PLANES_COORDINATE_H
