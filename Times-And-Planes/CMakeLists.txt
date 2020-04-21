@@ -23,4 +23,7 @@ add_executable(Times_And_Planes
         Read/Read_Flow.cpp        Read/Read_Flow.h
         "Stage -1.cpp"        "Stage -1.h"
         "Calculating times.cpp"        "Calculating times.h"
-        Functions/Function_MergeTimes.cpp        Functions/Function_MergeTimes.h "Measure units/Coordinate.cpp" "Measure units/Coordinate.h")
+        Functions/Function_MergeTimes.cpp        Functions/Function_MergeTimes.h
+        "Measure units/Coordinate.cpp"        "Measure units/Coordinate.h"
+        "Measure units/Velocity.cpp"        "Measure units/Velocity.h"
+        "Measure units/Time.cpp"        "Measure units/Time.h")
