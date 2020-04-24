@@ -10,7 +10,7 @@
 
 class Coordinate
 {
-	double ms; //В метрах
+	double coordinate_ms; //В метрах
 	
 	Coordinate(double d);
 

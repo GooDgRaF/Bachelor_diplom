@@ -8,17 +8,17 @@
 
 double Coordinate::getMs() const
 	{
-		return ms;
+		return coordinate_ms;
 	}
 
 double Coordinate::getKms() const
 	{
-		return ms / Km2ms;
+		return coordinate_ms / Km2ms;
 	}
 
 double Coordinate::getNMs() const
 	{
-		return ms / NMs2ms;
+		return coordinate_ms / NMs2ms;
 	}
 
 Coordinate Coordinate::createMs(double ms)
@@ -28,7 +28,7 @@ Coordinate Coordinate::createMs(double ms)
 
 Coordinate::Coordinate(double d)
 	{
-		ms = d;
+		coordinate_ms = d;
 	}
 
 Coordinate Coordinate::createKMs(double kms)
@@ -43,12 +43,12 @@ Coordinate Coordinate::createNMs(double nms)
 
 Coordinate Coordinate::operator+()
 	{
-		return {ms};
+		return {coordinate_ms};
 	}
 
 Coordinate Coordinate::operator-()
 	{
-		return {-ms};
+		return {-coordinate_ms};
 	}
 
 Coordinate operator+(const Coordinate &a, const Coordinate &b)
