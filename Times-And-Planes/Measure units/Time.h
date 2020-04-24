@@ -8,7 +8,7 @@
 
 class Time
 {
-	double time;
+	double time_sec; //В секундах
 	
 	Time(double d);
 
@@ -18,6 +18,8 @@ public:
 	static constexpr double epsilon = 0.0001; //Точность сравнения
 	
 	double getTsec() const;
+	
+	double getTsec(const double &round_to) const;
 	
 	double getTmin() const;
 	
@@ -32,6 +34,7 @@ public:
 	Time operator-();
 	
 	friend std::ostream& operator<<(std::ostream &out, const Time &t);
+	
 	
 };
 

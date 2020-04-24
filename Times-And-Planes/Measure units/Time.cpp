@@ -10,22 +10,27 @@
 
 Time::Time(double d)
 	{
-		time = d;
+		time_sec = d;
 	}
 
 double Time::getTsec() const
 	{
-		return time;
+		return time_sec;
+	}
+	
+double Time::getTsec(const double &round_to) const
+	{
+		return round(time_sec * round_to) / round_to;
 	}
 
 double Time::getTmin() const
 	{
-		return time / min2sec;
+		return time_sec / min2sec;
 	}
 
 double Time::getTmin(const double &round_to) const
 	{
-		return round(time / min2sec * round_to) / round_to;
+		return round(time_sec / min2sec * round_to) / round_to;
 	}
 
 Time Time::createTsec(double sec)
@@ -40,18 +45,18 @@ Time Time::createTmin(double min)
 
 Time Time::operator+()
 	{
-		return {time};
+		return {time_sec};
 	}
 
 Time Time::operator-()
 	{
-		return {-time};
+		return {-time_sec};
 	}
 
 std::ostream &operator<<(std::ostream &out, const Time &t)
 	{
-		//out << t.time << " sec";
-		out << t.getTmin(100) << " min";
+		out << t.getTsec(100) << " sec";
+		//out << t.getTmin(100) << " min";
 		return out;
 	}
 
