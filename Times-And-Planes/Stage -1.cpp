@@ -3,15 +3,16 @@
 //
 #include <Build/Build_Zone.h>
 #include <Build/Build_Flow.h>
+#include <Read/Read_CheckPointsRegExp.h>
 #include "Stage -1.h"
 #include "Read/Read_CheckPoints.h"
 #include "Read/Read_Scheme.h"
 #include "Read/Read_Flow.h"
 #include "Functions/Topologic_Sort.h"
 
-void stage_negative_one(string &path_checkPointsFile, string &path_SchemesFile, string &path_FlowsFile, Zone &zone)
+void stage_minus_one(string &path_checkPointsFile, string &path_SchemesFile, string &path_FlowsFile, Zone &zone)
 	{
-		Read_CheckPoints(path_checkPointsFile, zone.checkPoints);
+		Read_CheckPointsRegExp(path_checkPointsFile, zone.checkPoints);
 		zone.graph_of_descendants.resize(zone.checkPoints.size());
 		
 		Read_Scheme(path_SchemesFile, zone.checkPoints, zone.schemes);
