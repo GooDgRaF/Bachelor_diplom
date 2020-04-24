@@ -26,4 +26,6 @@ add_executable(Times_And_Planes
         Functions/Function_MergeTimes.cpp        Functions/Function_MergeTimes.h
         "Measure units/Coordinate.cpp"        "Measure units/Coordinate.h"
         "Measure units/Velocity.cpp"        "Measure units/Velocity.h"
-        "Measure units/Time.cpp"        "Measure units/Time.h" "Measure units/MeasureUnits.h")
+        "Measure units/Time.cpp"        "Measure units/Time.h"
+        "Measure units/MeasureUnits.h"
+        Read/Read_CheckPointsRegExp.cpp        Read/Read_CheckPointsRegExp.h)
