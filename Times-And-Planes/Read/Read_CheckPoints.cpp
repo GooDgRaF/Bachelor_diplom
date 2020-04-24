@@ -36,10 +36,17 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &checkPoint
 					exit(-3);
 				}
 			}
-			double x,y,z,vmin,vmax;
+			double x, y, z, vmin, vmax;
 			
 			checkPoints[i].name = tmp;
 			CheckPointFile >> x >> y >> z >> vmin >> vmax;
+			
+			if (vmin > vmax) //Проверка корректности введённых скоростей
+			{
+				cerr << "Attention! vmin = " << vmin << " > vmax = " << vmax << " in file: " << name_of_file
+					 << " in line: " << i + 2 << endl;
+				exit(-3);
+			}
 			
 			checkPoints[i].x = Coordinate::createKMs(x);
 			checkPoints[i].y = Coordinate::createKMs(y); //В зависимости от исходных данных
@@ -48,7 +55,7 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &checkPoint
 			
 			checkPoints[i].Vmin = Velocity::createVkm_h(vmin);
 			checkPoints[i].Vmax = Velocity::createVkm_h(vmax);
-		
+			
 			
 			CheckPointFile >> tmp;
 			checkPoints[i].Landing_flag = tmp == "LAND";
@@ -67,12 +74,12 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &checkPoint
 		if (k == checkPoints.size()) //Проверка, чтобы была точка с флагом посадки
 		{
 			cerr << "Attention! " << "The LAND flag is not found among points in " << name_of_file << endl;
-			exit(-4);
+			exit(-3);
 		}
 		if (k < checkPoints.size() - 1) //Проверка, чтобы не было более одной точки с флагом посадки
 		{
 			cerr << "Attention! " << "In " << name_of_file << " LAND flag occurs more than one time";
-			exit(-5);
+			exit(-3);
 		}
 		
 		CheckPointFile.close();
