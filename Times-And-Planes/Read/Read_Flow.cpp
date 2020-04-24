@@ -32,7 +32,7 @@ void Read_Flow(const string &name_of_file, vector<Flow> &flows)
 			}
 			catch (const runtime_error &ex) //Ловим ошибку о не обнаружении точки из потока среди точек из checkPoints
 			{
-				cerr << "Can't find " << ex.what() << " among points" << endl;
+				cerr << "Can't find '" << ex.what() << "' among points from Points file" << endl;
 				exit(-2);
 			}
 		}
