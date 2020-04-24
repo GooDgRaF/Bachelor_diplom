@@ -10,7 +10,7 @@
 
 class Velocity
 {
-	double velocity = 0; //В м/с
+	double velocity_m_s = 0; //В м/с
 	
 	Velocity(double d);
 

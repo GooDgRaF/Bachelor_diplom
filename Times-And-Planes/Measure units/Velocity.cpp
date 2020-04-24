@@ -9,22 +9,22 @@
 
 Velocity::Velocity(double d)
 	{
-		velocity = d;
+		velocity_m_s = d;
 	}
 
 double Velocity::getVm_s() const
 	{
-		return velocity;
+		return velocity_m_s;
 	}
 
 double Velocity::getVkm_h() const
 	{
-		return velocity * m_s2km_h;
+		return velocity_m_s * m_s2km_h;
 	}
 
 double Velocity::getVnm_h() const
 	{
-		return velocity * m_s2nm_h;
+		return velocity_m_s * m_s2nm_h;
 	}
 
 Velocity Velocity::createVm_s(double m_s)
