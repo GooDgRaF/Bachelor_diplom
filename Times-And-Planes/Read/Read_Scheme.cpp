@@ -53,7 +53,11 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, ve
 		
 		while (getline(SchemeFile, str))
 		{
-			regex_match(str.c_str(), res, regular);
+			if (!regex_match(str.c_str(), res, regular))
+			{
+				cerr << "Warning! Line '" << i + 2 << "' in " << name_of_file << " doesn't follow the input format" << endl;
+				exit(-3);
+			}
 			
 			try //Заполняем соответственно комментарию о регулярном выражении
 			{
@@ -96,7 +100,7 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, ve
 			}
 			catch (const runtime_error &ex) //Ловим ошибку о не обнаружении точки из схемы среди точек из checkPoints
 			{
-				cerr << "Can't find " << ex.what() << " in line " << i + 2 << " among points" << endl;
+				cerr << "Can't find '" << ex.what() << "' in line '" << i + 2 << "' among points from Points file" << endl;
 				exit(-2);
 			}
 			
