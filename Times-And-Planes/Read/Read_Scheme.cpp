@@ -34,7 +34,7 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, ve
 		 * 1) Название схемы [NameA]
 		 * 2) Название точки начала схемы [POINT1]
 		 * 3) Названия точек конца схемы [POINT12 POINT13]
-		 * 4) Названия точек, предшествующих спрямлению [POINT2]
+		 * 4) Названия точек, предшествующих спрямлению [POINT1 POINT2]
 		 * 5) Названия точек куда можно спрямляться [POINT12 POINT13]
 		 * 6) Названия точек откуда можно спрямляться [POINT3 POINT4 POINT5]
 		 * 7) Названия точек следующих за спрямлением [POINT12]
@@ -55,7 +55,8 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, ve
 		{
 			if (!regex_match(str.c_str(), res, regular))
 			{
-				cerr << "Warning! Line '" << i + 2 << "' in " << name_of_file << " doesn't follow the input format" << endl;
+				cerr << "Warning! Line '" << i + 2 << "' in " << name_of_file << " doesn't follow the input format"
+					 << endl;
 				exit(-3);
 			}
 			
@@ -75,24 +76,9 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, ve
 				
 				fillScheme(res[4], schemes[i].path); //Собрали точки до спрямления
 				
-				/*В ситуации, когда с начальной точки можно спрямляться возникает дублирование, необходимо его избежать
-				 * Name1 (POINT1)(POINT2 POINT3): POINT1 Str(POINT3) POINT1 POINT2 /Str
-				 * Поэтому, в такой ситуации path заполнять будем со второй точки с которых возможно спрямление
-				*/
-				if (findInVector(schemes[i].straighteningFrom, schemes[i].start))
+				for (auto el : schemes[i].straighteningFrom) //Собрали точки с которых возможно спрямление
 				{
-					for (int j = 1; j < schemes[i].straighteningFrom.size(); j++)
-					{
-						schemes[i].path.push_back(schemes[i].straighteningFrom[j]);
-					}
-					
-				}
-				else
-				{
-					for (auto el : schemes[i].straighteningFrom)
-					{
-						schemes[i].path.push_back(el);
-					}
+					schemes[i].path.push_back(el);
 				}
 				
 				fillScheme(res[7], schemes[i].path); //Собрали точки после спрямления
@@ -100,7 +86,8 @@ void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, ve
 			}
 			catch (const runtime_error &ex) //Ловим ошибку о не обнаружении точки из схемы среди точек из checkPoints
 			{
-				cerr << "Can't find '" << ex.what() << "' in line '" << i + 2 << "' among points from Points file" << endl;
+				cerr << "Can't find '" << ex.what() << "' in line '" << i + 2 << "' among points from Points file"
+					 << endl;
 				exit(-2);
 			}
 			
