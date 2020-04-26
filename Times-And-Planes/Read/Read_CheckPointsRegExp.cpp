@@ -33,7 +33,7 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 		
 		string str;
 		cmatch res;
-		regex regular(R"((\w+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)(?:\s*)(\s*LAND|0)?)");
+		regex regular(R"((\w+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)(?:\s*)(LAND|0)?\s*)");
 		
 		int i = 0; // Счётчик, отвечающий за проход по chekpoints
 		
@@ -44,7 +44,8 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 		{
 			if (!regex_match(str.c_str(), res, regular))
 			{
-				cerr << "Warning! Line '" << i + 2 << "' in " << name_of_file << " doesn't follow the input format" << endl;
+				cerr << "Warning! Line '" << i + 2 << "' in " << name_of_file << " doesn't follow the input format"
+					 << endl;
 				exit(-3);
 			}
 			
