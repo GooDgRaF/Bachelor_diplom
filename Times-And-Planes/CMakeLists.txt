@@ -7,13 +7,13 @@ include_directories(.)
 
 add_executable(Times_And_Planes
         main.cpp
-        CheckPoint.h
-        Flow.h
+        "Fields of Zone/CheckPoint.h"
+        "Fields of Zone/Flow.h"
         Functions/Function_OpenFile.cpp         Functions/Function_OpenFile.h
-        Maps.h                                  Maps.cpp
+        "Fields of Zone/Maps.h" "Fields of Zone/Maps.cpp"
         Read/Read_CheckPoints.cpp Read/Read_CheckPoints.h
         Read/Read_Scheme.cpp Read/Read_Scheme.h
-        Scheme.h Functions/Function_Find-InMap.cpp Functions/Function_Find-InMap.h
+        "Fields of Zone/Scheme.h" Functions/Function_Find-InMap.cpp Functions/Function_Find-InMap.h
         Functions/Function_Fill-scheme.cpp      Functions/Function_Fill-scheme.h
         Build/Build_Zone.cpp Build/Build_Zone.h
         Functions/Function_Find-InVector.h

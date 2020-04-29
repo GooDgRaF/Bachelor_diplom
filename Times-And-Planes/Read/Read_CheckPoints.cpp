@@ -5,8 +5,8 @@
 #include <fstream>
 #include <map>
 #include <vector>
-#include "Maps.h"
-#include "CheckPoint.h"
+#include "Fields of Zone/Maps.h"
+#include "Fields of Zone/CheckPoint.h"
 #include "Functions/Function_OpenFile.h"
 
 using namespace std;
@@ -58,14 +58,14 @@ void Read_CheckPoints(const string &name_of_file, vector<CheckPoint> &checkPoint
 			
 			
 			CheckPointFile >> tmp;
-			checkPoints[i].Landing_flag = tmp == "LAND";
+			checkPoints[i].landing_flag = tmp == "LAND";
 			pointNameToID[checkPoints[i].name] = i;
 		}
 		
 		k = 0;
 		for (const auto &el : checkPoints) //Проверка, чтобы была точка с флагом посадки
 		{
-			if (el.Landing_flag == 0)
+			if (el.landing_flag == 0)
 			{
 				k++;
 			}

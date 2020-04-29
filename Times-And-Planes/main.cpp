@@ -11,9 +11,9 @@ int main()
 	{
 		Zone zone;
 		
-		string nameOfPointsFile = "E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Source information/Points/CheckPointEzTimeTest.txt";//TestFastStrReg CheckPointEzTimeTest.txt CheckPointTestTwoFlowsTopSort
-		string nameOfSchemeFile = "E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Source information/Schemes/SchemeEzTimeTest.txt";//SchemeEzTimeTest.txt SchemeTestTwoFlows
-		string nameOfFlowsFile = "E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Source information/Flows/EzFlowTimeTest.txt"; //EzFlowTimeTest.txt TwoFlowsTest
+		string nameOfPointsFile = "E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Source information/Points/CheckPointTestTwoFlowsTopSort.txt";//TestFastStrReg CheckPointEzTimeTest.txt CheckPointTestTwoFlowsTopSort
+		string nameOfSchemeFile = "E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Source information/Schemes/SchemeTestTwoFlows.txt";//SchemeEzTimeTest.txt SchemeTestTwoFlows
+		string nameOfFlowsFile = "E:/Works/Diplom/Bachelor_diplom/Times-And-Planes/Source information/Flows/TwoFlowsTest.txt"; //EzFlowTimeTest.txt TwoFlowsTest
 		
 		stage_minus_one(nameOfPointsFile, nameOfSchemeFile, nameOfFlowsFile, zone);
 		

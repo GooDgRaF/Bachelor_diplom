@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "CheckPoint.h"
+#include "Fields of Zone/CheckPoint.h"
 
 void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPoint> &checkPoints);
 

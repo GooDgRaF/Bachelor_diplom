@@ -7,12 +7,13 @@
 
 #include <string>
 #include <vector>
-#include "CheckPoint.h"
-#include "Scheme.h"
+#include "Fields of Zone/CheckPoint.h"
+#include "Fields of Zone/Scheme.h"
 
 using namespace std;
 
 
-void Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, vector<Scheme> &schemes);
+void
+Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, vector<Scheme> &schemes);
 
 #endif

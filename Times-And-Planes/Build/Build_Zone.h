@@ -6,8 +6,8 @@
 #define TIMES_AND_PLANES_BUILD_ZONE_H
 
 #include <vector>
-#include "CheckPoint.h"
-#include "Scheme.h"
+#include "Fields of Zone/CheckPoint.h"
+#include "Fields of Zone/Scheme.h"
 
 using namespace std;
 
