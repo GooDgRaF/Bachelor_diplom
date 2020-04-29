@@ -28,12 +28,11 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 		 * 1) - имя точки
 		 * 2,3,4) - координаты x,y,z
 		 * 5,6) - скорости vmin, vmax
-		 * И ещё 7 группа захвата - поиск LAND
 		 */
 		
 		string str;
 		cmatch res;
-		regex regular(R"((\w+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)(?:\s*)(LAND|0)?\s*)");
+		regex regular(R"((\w+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)(?:\s*))");
 		
 		int i = 0; // Счётчик, отвечающий за проход по chekpoints
 		
@@ -75,8 +74,6 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 			
 			checkPoints[i].Vmin = Velocity::createVkm_h(vmin);
 			checkPoints[i].Vmax = Velocity::createVkm_h(vmax);
-			
-			checkPoints[i].landing_flag = res[7] == "LAND";
 			
 			pointNameToID[checkPoints[i].name] = i;
 			

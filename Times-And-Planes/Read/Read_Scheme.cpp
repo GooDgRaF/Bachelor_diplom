@@ -31,11 +31,11 @@ Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, vector<
 		/*
 		 * Пояснение к регулярному выражению:
 		 * Всего восемь групп захвата:
-		 * NameA (POINT1)(POINT12 POINT13)(5): POINT1 POINT2 Str(POINT12 POINT13) POINT3 POINT4 POINT5 /Str POINT12
+		 * NameA (POINT1)(POINT12 POINT13)(LAND): POINT1 POINT2 Str(POINT12 POINT13) POINT3 POINT4 POINT5 /Str POINT12
 		 * 1) Название схемы [NameA]
 		 * 2) Название точки начала схемы [POINT1]
 		 * 3) Названия точек конца схемы [POINT12 POINT13]
-		 * 4) Вспомогательная группа, количество повторений цикла [5]
+		 * 4) Вспомогательная группа, посадочная метка (приписывается всем точкам этой схемы)
 		 * 5) Названия точек, предшествующих спрямлению [POINT1 POINT2]
 		 * 6) Названия точек куда можно спрямляться [POINT12 POINT13]
 		 * 7) Названия точек откуда можно спрямляться [POINT3 POINT4 POINT5]
@@ -48,7 +48,7 @@ Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, vector<
 		string str;
 		cmatch res;
 		regex regular(
-				R"((\w+)\s*\((\w+)\)\s*\(([\w\s]+)\)\s*(?:\(([\d\s]+)\)\s*)?:\s*([\w\s]+)?\s+(?:Str\(([\w\s]+)\)\s*([\w\s]+)\/Str)?\s*([\w\s]*)?)");
+				R"((\w+)\s*\((\w+)\)\s*\(([\w\s]+)\)\s*(?:\((LAND)\)\s*)?:\s*([\w\s]+)?\s+(?:Str\(([\w\s]+)\)\s*([\w\s]+)\/Str)?\s*([\w\s]*)?)");
 		int i = 0; // Счётчик, отвечающий за проход по schemes
 		
 		string tmp;
@@ -93,6 +93,15 @@ Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, vector<
 					 << endl;
 				exit(-2);
 			}
+			
+			if (res[4] == "LAND")
+			{
+				for (auto el : schemes[i].path)
+				{
+					checkPoints[el].landing_flag = true;
+				}
+			}
+			
 			
 			i++;
 			

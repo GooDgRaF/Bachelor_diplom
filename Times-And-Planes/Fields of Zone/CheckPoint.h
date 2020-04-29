@@ -18,7 +18,7 @@ struct CheckPoint
 	Coordinate z = Coordinate::createMs(0);
 	Velocity Vmin = Velocity::createVkm_h(0);
 	Velocity Vmax = Velocity::createVkm_h(0);
-	bool landing_flag;
+	bool landing_flag = false;
 	vector<pair<Time, Time >> times;//Набор временных интервалов (Tmin, Tmax)
 };
 
