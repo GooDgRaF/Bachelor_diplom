@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include "Measure units/MeasureUnits.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ struct Flow
 	map<int, vector<int>> graph_of_descendants; //Подграф графа Zone, заданный списками Следующий
 	map<int, vector<int>> graph_of_ancestors; //Подграф графа Zone, заданный списками Предшествующий
 	vector<int> keys; //Массив для значений вершин после топологической сортировки
+	map<int, vector<pair<Time, Time>>> land_points_times; //Отображение для времён точек, пересекающихся на разных потоках
 };
 
 

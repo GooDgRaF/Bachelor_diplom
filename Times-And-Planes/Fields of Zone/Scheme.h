@@ -19,6 +19,7 @@ struct Scheme
     vector<int> path;
     vector<int> straighteningFrom;
     vector<int> straighteningWhere;
+    
 };
 
 #endif //TIMES_AND_PLANES_SCHEME_H
