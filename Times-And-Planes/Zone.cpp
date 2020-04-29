@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cmath>
 #include "Zone.h"
-#include "Maps.h"
+#include "Fields of Zone/Maps.h"
 
 using namespace std;
 
@@ -124,11 +124,22 @@ void Zone::print_times()
 			for (int key : flow.keys)
 			{
 				cout << checkPoints[key].name << " --> ";
-				for (auto &pair : checkPoints[key].times)
+				if (checkPoints[key].landing_flag == true)
 				{
-					cout << "[" << pair.first << ", " << pair.second << "] ";
+					for (auto &pair : flow.land_points_times[key])
+					{
+						cout << "[" << pair.first << ", " << pair.second << "] ";
+					}
+					cout << endl;
 				}
-				cout << endl;
+				else
+				{
+					for (auto &pair : checkPoints[key].times)
+					{
+						cout << "[" << pair.first << ", " << pair.second << "] ";
+					}
+					cout << endl;
+				}
 			}
 			cout << endl;
 		}

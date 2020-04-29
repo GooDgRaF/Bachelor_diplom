@@ -13,6 +13,10 @@ void calculateTimes(Zone &zone, Flow &flow)
 		{
 			try
 			{
+				if (zone.checkPoints[flow.keys[i]].landing_flag == true)
+				{
+					mergeTimes(flow.land_points_times[flow.keys[i]]);
+				}
 				mergeTimes(zone.checkPoints[flow.keys[i]].times);
 			}
 			catch (runtime_error &er)
@@ -47,7 +51,25 @@ void calculateTimes(Zone &zone, Flow &flow)
 				tmin = 2 * S / (vmax0 + vmax1);
 				tmax = 2 * S / (vmin0 + vmin1);
 				
-				for (auto pair : zone.checkPoints[flow.keys[i]].times)
+				if (zone.checkPoints[son].landing_flag == true) //Если следующая точка посадочная
+				{
+					if (zone.checkPoints[flow.keys[i]].landing_flag == true) //Если текущая точка посадочная
+					{
+						for (auto &pair : flow.land_points_times[flow.keys[i]]) //Если следующая посадочная и текущая посадочная
+						{
+							flow.land_points_times[son].push_back({pair.first + tmin, pair.second + tmax});
+						}
+					}
+					else //Если следующая посадочная, а текущая обычная
+					{
+						for (auto &pair : zone.checkPoints[flow.keys[i]].times)
+						{
+							flow.land_points_times[son].push_back({pair.first + tmin, pair.second + tmax});
+						}
+					}
+				}
+				
+				for (auto &pair : zone.checkPoints[flow.keys[i]].times) //Если следующая и текущая точки обычные
 				{
 					zone.checkPoints[son].times.push_back({pair.first + tmin, pair.second + tmax});
 				}
