@@ -6,7 +6,7 @@
 #include <regex>
 #include <fstream>
 #include <Functions/Function_OpenFile.h>
-#include <Maps.h>
+#include <Fields of Zone/Maps.h>
 
 using namespace std;
 
@@ -58,6 +58,7 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 				}
 			}
 			
+			
 			double x, y, z, vmin, vmax;
 			
 			x = atof(res[2].first);
@@ -75,7 +76,7 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 			checkPoints[i].Vmin = Velocity::createVkm_h(vmin);
 			checkPoints[i].Vmax = Velocity::createVkm_h(vmax);
 			
-			checkPoints[i].Landing_flag = res[7] == "LAND";
+			checkPoints[i].landing_flag = res[7] == "LAND";
 			
 			pointNameToID[checkPoints[i].name] = i;
 			
@@ -89,27 +90,7 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 			
 			i++;
 		}
-		
-		k = 0;
-		for (const auto &el : checkPoints) //Проверка, чтобы была точка с флагом посадки
-		{
-			if (el.Landing_flag == 0)
-			{
-				k++;
-			}
-		}
-		
-		if (k == checkPoints.size()) //Проверка, чтобы была точка с флагом посадки
-		{
-			cerr << "Attention! " << "The 'LAND flag' is not found among points in " << name_of_file << endl;
-			exit(-3);
-		}
-		if (k < checkPoints.size() - 1) //Проверка, чтобы не было более одной точки с флагом посадки
-		{
-			cerr << "Attention! " << "In " << name_of_file << " 'LAND flag' occurs more than one time";
-			exit(-3);
-		}
-		
+
 		CheckPointFile.close();
 		
 	}
