@@ -2,7 +2,7 @@
 #include "Read/Read_Scheme.h"
 #include "Zone.h"
 #include "Stage -1.h"
-#include "Functions/Function_MergeTimes.h"
+#include "Functions/MergeTimes.h"
 #include "Calculating times.h"
 
 using namespace std;
