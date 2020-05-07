@@ -10,7 +10,6 @@
 #include "Fields of Zone/Maps.h"
 #include "Fields of Zone/Scheme.h"
 #include "Functions/Function_OpenFile.h"
-#include "Functions/Function_Find-InMap.h"
 #include "Functions/Function_Fill-scheme.h"
 
 using namespace std;
@@ -35,7 +34,7 @@ Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, vector<
 		 * 1) Название схемы [NameA]
 		 * 2) Название точки начала схемы [POINT1]
 		 * 3) Названия точек конца схемы [POINT12 POINT13]
-		 * 4) Вспомогательная группа, посадочная метка (приписывается всем точкам этой схемы)
+		 * 4) Вспомогательная группа, посадочная метка (приписывается всем точкам этой схемы) !!! и количество циклов !!!
 		 * 5) Названия точек, предшествующих спрямлению [POINT1 POINT2]
 		 * 6) Названия точек куда можно спрямляться [POINT12 POINT13]
 		 * 7) Названия точек откуда можно спрямляться [POINT3 POINT4 POINT5]
@@ -65,26 +64,25 @@ Read_Scheme(const string &name_of_file, vector<CheckPoint> &checkPoints, vector<
 			
 			try //Заполняем соответственно комментарию о регулярном выражении
 			{
-				schemes[i].name = res[1];
+				schemes[i].name = string(res[1]);
 				
-				pointIDtoStartSchemeID[findValueINpointNameToID(res[2])].push_back(i); //Заполняем отображение ID точки --> ID схемы, которая начинается в этой точке
+				//schemes[i].start = findValueInMap(pointNameToID, string(res[2]));
+				schemes[i].start = pointNameToID.at(string(res[2]));
 				
-				schemes[i].start = findValueINpointNameToID(res[2]);
+				fillScheme(string(res[3]), schemes[i].end);
 				
-				fillScheme(res[3], schemes[i].end);
+				fillScheme(string(res[6]), schemes[i].straighteningWhere);
 				
-				fillScheme(res[6], schemes[i].straighteningWhere);
+				fillScheme(string(res[7]), schemes[i].straighteningFrom);
 				
-				fillScheme(res[7], schemes[i].straighteningFrom);
-				
-				fillScheme(res[5], schemes[i].path); //Собрали точки до спрямления
+				fillScheme(string(res[5]), schemes[i].path); //Собрали точки до спрямления
 				
 				for (auto el : schemes[i].straighteningFrom) //Собрали точки с которых возможно спрямление
 				{
 					schemes[i].path.push_back(el);
 				}
 				
-				fillScheme(res[8], schemes[i].path); //Собрали точки после спрямления
+				fillScheme(string(res[8]), schemes[i].path); //Собрали точки после спрямления
 				
 			}
 			catch (const runtime_error &ex) //Ловим ошибку о не обнаружении точки из схемы среди точек из checkPoints

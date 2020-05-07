@@ -12,6 +12,6 @@
 using namespace std;
 
 extern map<string, int> pointNameToID;
-extern map<int, vector<int>> pointIDtoStartSchemeID;
+extern map<int, int> pointIDtoStartCycleID;
 
 #endif //TIMES_AND_PLANES_MAPS_H

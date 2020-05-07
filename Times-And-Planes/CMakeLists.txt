@@ -13,7 +13,7 @@ add_executable(Times_And_Planes
         "Fields of Zone/Maps.h" "Fields of Zone/Maps.cpp"
         Read/Read_CheckPoints.cpp Read/Read_CheckPoints.h
         Read/Read_Scheme.cpp Read/Read_Scheme.h
-        "Fields of Zone/Scheme.h" Functions/Function_Find-InMap.cpp Functions/Function_Find-InMap.h
+        "Fields of Zone/Scheme.h"
         Functions/Function_Fill-scheme.cpp      Functions/Function_Fill-scheme.h
         Build/Build_Zone.cpp Build/Build_Zone.h
         Functions/Function_Find-InVector.h
@@ -28,4 +28,4 @@ add_executable(Times_And_Planes
         "Measure units/Velocity.cpp"        "Measure units/Velocity.h"
         "Measure units/Time.cpp"        "Measure units/Time.h"
         "Measure units/MeasureUnits.h"
-        Read/Read_CheckPointsRegExp.cpp        Read/Read_CheckPointsRegExp.h)
+        Read/Read_CheckPointsRegExp.cpp        Read/Read_CheckPointsRegExp.h "Fields of Zone/Cycle.h")
