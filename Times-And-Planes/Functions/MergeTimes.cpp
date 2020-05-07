@@ -2,7 +2,7 @@
 // Created by Антон on 14.04.2020.
 //
 
-#include "Function_MergeTimes.h"
+#include "MergeTimes.h"
 
 #include <map>
 #include <iostream>

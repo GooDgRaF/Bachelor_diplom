@@ -4,7 +4,7 @@
 
 #include <fstream>
 #include <iostream>
-#include "Function_OpenFile.h"
+#include "OpenFile.h"
 
 using namespace std;
 
