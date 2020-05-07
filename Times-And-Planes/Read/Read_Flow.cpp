@@ -7,7 +7,6 @@
 #include "Read_Flow.h"
 #include "Fields of Zone/Flow.h"
 #include "Functions/Function_OpenFile.h"
-#include "Functions/Function_Find-InMap.h"
 #include "Fields of Zone/Maps.h"
 
 void Read_Flow(const string &name_of_file, vector<Flow> &flows)
@@ -24,15 +23,15 @@ void Read_Flow(const string &name_of_file, vector<Flow> &flows)
 		
 		for (auto &flow : flows)
 		{
-			string tmp;
-			FlowsFile >> flow.name >> tmp;
+			string token;
+			FlowsFile >> flow.name >> token;
 			try
 			{
-				flow.start_point = findValueINpointNameToID(tmp);
+				flow.start_point = pointNameToID.at(token);
 			}
-			catch (const runtime_error &ex) //Ловим ошибку о не обнаружении точки из потока среди точек из checkPoints
+			catch (const out_of_range &ex) //Ловим ошибку о не обнаружении точки из потока среди точек из checkPoints
 			{
-				cerr << "Can't find '" << ex.what() << "' among points from Points file" << endl;
+				cerr << "Can't find '" << token << "' among points from Points file" << endl;
 				exit(-2);
 			}
 		}

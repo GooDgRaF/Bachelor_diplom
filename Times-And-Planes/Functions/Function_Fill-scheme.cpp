@@ -4,15 +4,21 @@
 
 #include <sstream>
 #include "Function_Fill-scheme.h"
-#include "Function_Find-InMap.h"
-
+#include "Fields of Zone/Maps.h"
 
 void fillScheme(const string &str, vector<int> &field)
 	{
 		stringstream ss(str);
-		string tmp;
-		while (ss >> tmp)
+		string token;
+		while (ss >> token)
 		{
-			field.push_back(findValueINpointNameToID(tmp));
+			try
+			{
+				field.push_back(pointNameToID.at(token));
+			}
+			catch (const out_of_range &ex)
+			{
+				throw runtime_error(token);
+			}
 		}
 	}
