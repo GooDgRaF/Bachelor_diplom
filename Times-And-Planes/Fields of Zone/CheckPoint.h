@@ -6,6 +6,7 @@
 #define TIMES_AND_PLANES_CHECKPOINT_H
 
 #include <string>
+#include <vector>
 #include "Measure units/MeasureUnits.h"
 
 using namespace std;
