@@ -22,7 +22,7 @@ struct Zone
 	vector<CheckPoint> checkPoints;
 	vector<Scheme> schemes;
 	vector<Flow> flows;
-	vector<Cycle> cycle;
+	vector<Cycle> cycles;
 	
 	void print_flows_keys();
 	
