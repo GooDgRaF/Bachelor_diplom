@@ -4,12 +4,19 @@
 
 #include <algorithm>
 #include <iostream>
+#include <Functions/Calculate cycles.h>
 #include "Build_Zone.h"
-#include "Functions/Function_Find-InVector.h"
+#include "Functions/Find-InVector.h"
 
-void Build_Zone(const vector<Scheme> &schemes, vector<vector<int>> &graph_of_zone)
+void Build_Zone(Zone &zone)
     {
-        for (const auto &scheme : schemes) //Строим граф списками Следующий
+    	
+    	for (auto &cycle : zone.cycles)
+		{
+    		calcCycle(zone.checkPoints, cycle);
+		}
+    	
+        for (const auto &scheme : zone.schemes) //Строим граф списками Следующий
         {
             /*Идём до size - 1, так как мы соединяем дугами со следующими точками,
                  * то есть будет связь между предпоследней точкой и последней
@@ -17,7 +24,7 @@ void Build_Zone(const vector<Scheme> &schemes, vector<vector<int>> &graph_of_zon
                  */
             for (int i = 0; i < scheme.path.size() - 1; i++)
             {
-                graph_of_zone[scheme.path[i]].push_back(scheme.path[i + 1]); //Соединить текущую точку со следующей
+                zone.graph_of_descendants[scheme.path[i]].push_back(scheme.path[i + 1]); //Соединить текущую точку со следующей
 
                 /*
                 *Если с текущей точки возможно спрямление и следующая точка не является конечной точкой спрямления
@@ -30,7 +37,7 @@ void Build_Zone(const vector<Scheme> &schemes, vector<vector<int>> &graph_of_zon
                 {
                     for (const auto &str : scheme.straighteningWhere) //Соединить текущую точку со всеми точками на которые возможно спрямление
                     {
-                        graph_of_zone[scheme.path[i]].push_back(str);
+                        zone.graph_of_descendants[scheme.path[i]].push_back(str);
                     }
                 }
             }

@@ -14,8 +14,9 @@ using namespace std;
 
 struct Cycle
 {
-	string nameS; //Название точки старта цикла
-	string nameF; //Название точки окончания цикла
+	string name;
+	int start; //ID точки старта цикла
+	int finish; //ID точки окончания цикла
 	vector<int> path; //Маршрут цикла
 	int repeat; //Количество повторений цикла
 	Time Tmin = Time::createTsec(0);

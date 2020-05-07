@@ -15,11 +15,11 @@ void stage_minus_one(string &path_checkPointsFile, string &path_SchemesFile, str
 		Read_CheckPointsRegExp(path_checkPointsFile, zone.checkPoints);
 		zone.graph_of_descendants.resize(zone.checkPoints.size());
 		
-		Read_Scheme(path_SchemesFile, zone.checkPoints, zone.schemes);
+		Read_Scheme(path_SchemesFile, zone.checkPoints, zone.schemes, zone.cycles);
 		
 		Read_Flow(path_FlowsFile, zone.flows);
 		
-		Build_Zone(zone.schemes, zone.graph_of_descendants);
+		Build_Zone(zone);
 		
 		for (auto &flow : zone.flows)
 		{
