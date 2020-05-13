@@ -124,22 +124,11 @@ void Zone::print_times()
 			for (int key : flow.keys)
 			{
 				cout << checkPoints[key].name << " --> ";
-				if (checkPoints[key].landing_flag == true)
+				for (auto &pair : flow.times[key])
 				{
-					for (auto &pair : flow.land_points_times[key])
-					{
-						cout << "[" << pair.first << ", " << pair.second << "] ";
-					}
-					cout << endl;
+					cout << "[" << pair.first << ", " << pair.second << "] ";
 				}
-				else
-				{
-					for (auto &pair : checkPoints[key].times)
-					{
-						cout << "[" << pair.first << ", " << pair.second << "] ";
-					}
-					cout << endl;
-				}
+				cout << endl;
 			}
 			cout << endl;
 		}

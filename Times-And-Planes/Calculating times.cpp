@@ -10,16 +10,13 @@
 
 void calculateTimes(Zone &zone, Flow &flow)
 	{
-		for (int i = 0; i < flow.graph_of_descendants.size();)
+		int i = 0;
+		while (i < flow.graph_of_descendants.size())
 		{
 			int j = flow.keys[i]; //Изначальый ID точки
 			try
 			{
-				if (zone.checkPoints[j].landing_flag == true)
-				{
-					mergeTimes(flow.land_points_times[j]);
-				}
-				mergeTimes(zone.checkPoints[j].times);
+				mergeTimes(flow.times[j]);
 			}
 			catch (runtime_error &er)
 			{
@@ -30,13 +27,12 @@ void calculateTimes(Zone &zone, Flow &flow)
 			if ((pointIDtoStartCycleID.count(j)) //Если точка является началом цикла и остались повторения цикла
 				&& (zone.cycles[pointIDtoStartCycleID[j]].repeat > 0))
 			{
-				for (auto &pair : zone.checkPoints[j].times)
+				for (auto &pair : flow.times[j])
 				{
-					zone.checkPoints[j].times.push_back({pair.first + zone.cycles[pointIDtoStartCycleID[j]].Tmin,
-														 pair.second + zone.cycles[pointIDtoStartCycleID[j]].Tmax});
+					flow.times[j].push_back({pair.first + zone.cycles[pointIDtoStartCycleID[j]].Tmin,
+											 pair.second + zone.cycles[pointIDtoStartCycleID[j]].Tmax});
 				}
 				zone.cycles[pointIDtoStartCycleID[j]].repeat--;
-				i = distance(flow.keys.begin(), find(flow.keys.begin(), flow.keys.end(), zone.cycles[pointIDtoStartCycleID[j]].finish));
 			}
 			else
 			{
@@ -65,31 +61,13 @@ void calculateTimes(Zone &zone, Flow &flow)
 					tmin = 2 * S / (vmax0 + vmax1);
 					tmax = 2 * S / (vmin0 + vmin1);
 					
-					if (zone.checkPoints[son].landing_flag == true) //Если следующая точка посадочная
-					{
-						if (zone.checkPoints[j].landing_flag == true) //Если текущая точка посадочная
-						{
-							for (auto &pair : flow.land_points_times[j]) //Если следующая посадочная и текущая посадочная
-							{
-								flow.land_points_times[son].push_back({pair.first + tmin, pair.second + tmax});
-							}
-						}
-						else //Если следующая посадочная, а текущая обычная
-						{
-							for (auto &pair : zone.checkPoints[j].times)
-							{
-								flow.land_points_times[son].push_back({pair.first + tmin, pair.second + tmax});
-							}
-						}
-					}
 					
-					for (auto &pair : zone.checkPoints[j].times) //Если следующая и текущая точки обычные
+					for (auto &pair : flow.times[j])
 					{
-						zone.checkPoints[son].times.push_back({pair.first + tmin, pair.second + tmax});
+						flow.times[son].push_back({pair.first + tmin, pair.second + tmax});
 					}
 				}
 				i++;
 			}
-			
 		}
 	}

@@ -20,7 +20,6 @@ struct CheckPoint
 	Velocity Vmin = Velocity::createVkm_h(0);
 	Velocity Vmax = Velocity::createVkm_h(0);
 	bool landing_flag = false;
-	vector<pair<Time, Time >> times;//Набор временных интервалов (Tmin, Tmax)
 };
 
 #endif //TIMES_AND_PLANES_CHECKPOINT_H
