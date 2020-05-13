@@ -12,29 +12,37 @@ using namespace std;
 
 void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPoint> &checkPoints)
 	{
-		size_t k = 0;
+		int i = 0;
 		
 		ifstream CheckPointFile;
 		
 		openFile(name_of_file, CheckPointFile);
 		
-		CheckPointFile >> k; //Первым лежит значение сколько точек всего
+		CheckPointFile >> i; //Первым лежит значение сколько точек всего
 		
-		checkPoints.resize(k);
+		if (i <= 0)
+		{
+			cerr << "Warning put the correct value for the number of points in " << name_of_file << endl;
+			exit(-2);
+		}
+		
+		checkPoints.resize(i);
 		
 		/*
 		 * Пояснение к регулярному выражению:
-		 * Всего 6 групп захвата, согласно формату:
-		 * 1) - имя точки
+		 * Всего 7 групп захвата, согласно формату:
+		 * NameP x y z v1 v2 land_flag
+		 * 1) - имя точки [NameP]
 		 * 2,3,4) - координаты x,y,z
 		 * 5,6) - скорости vmin, vmax
+		 * 7) - флаг посадочной полосы - LAND или пусто либо 0
 		 */
 		
 		string str;
 		cmatch res;
-		regex regular(R"((\w+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)(?:\s*))");
+		regex regular(R"((\w+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)(?:\s*)(LAND|0)?)");
 		
-		int i = 0; // Счётчик, отвечающий за проход по chekpoints
+		i = 0; // Счётчик, отвечающий за проход по chekpoints
 		
 		string tmp;
 		getline(CheckPointFile, tmp); //прочитать пустую строчку чтобы не мешалась
@@ -52,8 +60,8 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 			{
 				if (el.name == res[1])
 				{
-					cerr << "Attention! '" << res[1] << "' point occurs twice" << endl;
-					exit(-3);
+					cerr << "Attention! '" << res[1] << "' point occurs twice in " << name_of_file << endl;
+					exit(-2);
 				}
 			}
 			
@@ -66,14 +74,27 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 			vmin = atof(res[5].first);
 			vmax = atof(res[6].first);
 			
+			try
+			{
+				checkPoints.at(i);
+			}
+			catch (const out_of_range &ex) //Ловим ошибку о нехватке выделенного места для входных данных
+			{
+				cerr << "Check in " << name_of_file << " amount of points, it is low" << endl;
+				exit(-2);
+			}
+			
+			
 			checkPoints[i].name = res[1];
 			
-			checkPoints[i].x = Coordinate::createKMs(x);
-			checkPoints[i].y = Coordinate::createKMs(y); //В зависимости от исходных данных
+			checkPoints[i].x = Coordinate::createMs(x);
+			checkPoints[i].y = Coordinate::createMs(y); //В зависимости от исходных данных
 			checkPoints[i].z = Coordinate::createMs(z);
 			
-			checkPoints[i].Vmin = Velocity::createVkm_h(vmin);
-			checkPoints[i].Vmax = Velocity::createVkm_h(vmax);
+			checkPoints[i].Vmin = Velocity::createVm_s(vmin);
+			checkPoints[i].Vmax = Velocity::createVm_s(vmax);
+			
+			checkPoints[i].landing_flag = res[7] == "LAND";
 			
 			pointNameToID[checkPoints[i].name] = i;
 			
@@ -87,7 +108,10 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 			
 			i++;
 		}
-
+		
+		checkPoints.resize(i); //На случай если число точек считанное из файла, больше действительного их количества
+		
+		
 		CheckPointFile.close();
 		
 	}
