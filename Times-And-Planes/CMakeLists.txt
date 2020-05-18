@@ -26,4 +26,7 @@ add_executable(Times_And_Planes
         "Measure units/Velocity.cpp"        "Measure units/Velocity.h"
         "Measure units/Time.cpp"        "Measure units/Time.h"
         "Measure units/MeasureUnits.h"
-        Read/Read_CheckPointsRegExp.cpp        Read/Read_CheckPointsRegExp.h "Fields of Zone/Cycle.h" "Functions/Calculate cycles.cpp" "Functions/Calculate cycles.h" Read/Read_FlowRegExp.cpp Read/Read_FlowRegExp.h)
+        Read/Read_CheckPointsRegExp.cpp        Read/Read_CheckPointsRegExp.h
+        "Fields of Zone/StandardScheme.h"
+        "Functions/Calculate standard scheme.cpp"        "Functions/Calculate standard scheme.h"
+        Read/Read_FlowRegExp.cpp        Read/Read_FlowRegExp.h)
