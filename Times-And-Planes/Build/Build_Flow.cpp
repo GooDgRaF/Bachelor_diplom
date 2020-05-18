@@ -11,7 +11,8 @@ void Build_Flow(Zone &zone, Flow &flow)
 	{
 		int start_of_flow = flow.start_point;
 		
-		flow.times[start_of_flow].push_back({Time::createTsec(0),Time::createTsec(0)}); //Выставляем начальной точке потока времена по нулям
+		flow.times[start_of_flow].push_back({Time::createTsec(0),
+											 Time::createTsec(0)}); //Выставляем начальной точке потока времена по нулям
 		
 		stack<int> st;
 		st.push(start_of_flow);
