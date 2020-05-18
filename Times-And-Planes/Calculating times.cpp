@@ -24,15 +24,15 @@ void calculateTimes(Zone &zone, Flow &flow)
 				exit(-5);
 			}
 			
-			if ((pointIDtoStartCycleID.count(j)) //Если точка является началом цикла и остались повторения цикла
-				&& (zone.cycles[pointIDtoStartCycleID[j]].repeat > 0))
+			if ((pointIDtoStartCycleID.count(j)) //Если точка является началом стандартной схемы и остались повторы
+				&& (zone.standardSchemes[pointIDtoStartCycleID[j]].repeat > 0))
 			{
 				for (auto &pair : flow.times[j])
 				{
-					flow.times[j].push_back({pair.first + zone.cycles[pointIDtoStartCycleID[j]].Tmin,
-											 pair.second + zone.cycles[pointIDtoStartCycleID[j]].Tmax});
+					flow.times[j].push_back({pair.first + zone.standardSchemes[pointIDtoStartCycleID[j]].Tmin,
+											 pair.second + zone.standardSchemes[pointIDtoStartCycleID[j]].Tmax});
 				}
-				zone.cycles[pointIDtoStartCycleID[j]].repeat--;
+				zone.standardSchemes[pointIDtoStartCycleID[j]].repeat--;
 			}
 			else
 			{

@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <algorithm>
-#include <Fields of Zone/Cycle.h>
+#include <Fields of Zone/StandardScheme.h>
 #include "Fields of Zone/CheckPoint.h"
 #include "Fields of Zone/Scheme.h"
 #include "Fields of Zone/Flow.h"
@@ -22,7 +22,7 @@ struct Zone
 	vector<CheckPoint> checkPoints;
 	vector<Scheme> schemes;
 	vector<Flow> flows;
-	vector<Cycle> cycles;
+	vector<StandardScheme> standardSchemes;
 	
 	void print_flows_keys();
 	

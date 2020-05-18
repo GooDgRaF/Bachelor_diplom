@@ -7,7 +7,7 @@
 
 #include <string>
 #include <vector>
-#include <Fields of Zone/Cycle.h>
+#include <Fields of Zone/StandardScheme.h>
 #include "Fields of Zone/CheckPoint.h"
 #include "Fields of Zone/Scheme.h"
 
@@ -15,6 +15,6 @@ using namespace std;
 
 
 void
-Read_SchemeRegExp(const string &name_of_file, vector<CheckPoint> &checkPoints, vector<Scheme> &schemes, vector<Cycle> &cycles);
+Read_SchemeRegExp(const string &name_of_file, vector<CheckPoint> &checkPoints, vector<Scheme> &schemes, vector<StandardScheme> &standardSchemes);
 
 #endif

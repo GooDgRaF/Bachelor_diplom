@@ -4,16 +4,16 @@
 
 #include <algorithm>
 #include <iostream>
-#include <Functions/Calculate cycles.h>
+#include <Functions/Calculate standard scheme.h>
 #include "Build_Zone.h"
 #include "Functions/Find-InVector.h"
 
 void Build_Zone(Zone &zone)
     {
     	
-    	for (auto &cycle : zone.cycles)
+    	for (auto &cycle : zone.standardSchemes)
 		{
-    		calcCycle(zone.checkPoints, cycle);
+			calcStScheme(zone.checkPoints, cycle);
 		}
     	
         for (const auto &scheme : zone.schemes) //Строим граф списками Следующий
