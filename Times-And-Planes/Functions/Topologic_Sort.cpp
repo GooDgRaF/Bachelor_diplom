@@ -8,7 +8,7 @@
 
 void topologicalSort_of_flow(Flow &flow)
 	{
-		flow.keys.resize(flow.graph_of_descendants.size()+1);
+		flow.keys.resize(flow.graph_of_descendants.size() + 1);
 		int number = 0;
 		
 		map<int, int> DegIn;
