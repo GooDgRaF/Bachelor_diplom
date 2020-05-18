@@ -17,7 +17,7 @@ double Time::getTsec() const
 	{
 		return time_sec;
 	}
-	
+
 double Time::getTsec(const double &round_to) const
 	{
 		return round(time_sec * round_to) / round_to;
@@ -55,8 +55,8 @@ Time Time::operator-()
 
 std::ostream &operator<<(std::ostream &out, const Time &t)
 	{
-		//out << t.getTsec(100) << " sec";
-		out << t.getTmin(100) << " min";
+		out << t.getTsec(100) << " sec";
+		//out << t.getTmin(100) << " min";
 		//out << t.getTsec(100)/3600 << " hours";
 		return out;
 	}
