@@ -4,6 +4,7 @@
 
 #ifndef TIMES_AND_PLANES_TIME_H
 #define TIMES_AND_PLANES_TIME_H
+
 #include "iostream"
 
 class Time
@@ -33,7 +34,7 @@ public:
 	
 	Time operator-();
 	
-	friend std::ostream& operator<<(std::ostream &out, const Time &t);
+	friend std::ostream &operator<<(std::ostream &out, const Time &t);
 	
 	
 };
