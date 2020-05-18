@@ -40,7 +40,7 @@ void Read_FlowRegExp(const string &name_of_file, vector<Flow> &flows)
 		
 		string str;
 		cmatch res;
-		regex regular(R"((\w+)\s+([a-z,A-Z]\w*)\s*)");
+		regex regular(R"((\w+)\s+(\w+)\s*)");
 		
 		i = 0; // Счётчик, отвечающий за проход по flows
 		
@@ -67,7 +67,7 @@ void Read_FlowRegExp(const string &name_of_file, vector<Flow> &flows)
 			
 			try
 			{
-				flows.at(i);
+				flows.at(i); //Проверка доступа к i-ой координате вектора flows
 			}
 			catch (const out_of_range &ex) //Ловим ошибку о нехватке выделенного места для входных данных
 			{
