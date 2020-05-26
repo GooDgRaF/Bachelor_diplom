@@ -3,7 +3,6 @@
 //
 
 #include "Read_FlowRegExp.h"
-
 #include <fstream>
 #include <iostream>
 #include <regex>
@@ -89,7 +88,10 @@ void Read_FlowRegExp(const string &name_of_file, vector<Flow> &flows)
 			i++;
 		}
 		
-		flows.resize(i); //На случай если число потоков, считанное из файла больше действительного их количества
+		if (flows.size() > i) //На случай если число потоков, считанное из файла больше действительного их количества
+		{
+			flows.resize(i);
+		}
 		
 		FlowsFile.close();
 	}
