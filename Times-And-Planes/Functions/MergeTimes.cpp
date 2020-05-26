@@ -7,26 +7,6 @@
 #include <map>
 #include <iostream>
 
-double epsilon = 0.0001;
-
-/*
-struct doubleCompLess
-{
-	bool operator()(const double a, const double b)
-		{
-			return (abs(a - b) >= epsilon) && (a < b);
-		}
-};
-
-struct doubleCompGreater
-{
-	bool operator()(const double a, const double b)
-		{
-			return (abs(a - b) >= epsilon) && (a > b);
-		}
-};
-*/
-
 void mergeTimes(vector<pair<Time, Time>> &times)
 	{
 		compGreater compGr;
