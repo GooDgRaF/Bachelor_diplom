@@ -25,6 +25,8 @@ public:
 	
 	static Velocity createVkm_h(double km_h);
 	
+	static Velocity createVnm_h(double nm_h);
+	
 	double getVkm_h() const;
 	
 	double getVnm_h() const;
