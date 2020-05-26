@@ -1,7 +1,7 @@
 //
 // Created by Антон on 14.04.2020.
 //
-#include <Build/Build_Zone.h>
+#include <Build/Build_graph_of_Zone.h>
 #include <Build/Build_Flow.h>
 #include <Read/Read_CheckPointsRegExp.h>
 #include "Stage -1.h"
@@ -18,7 +18,7 @@ void stage_minus_one(string &path_checkPointsFile, string &path_SchemesFile, str
 		
 		Read_FlowRegExp(path_FlowsFile, zone.flows);
 		
-		Build_Zone(zone);
+		Build_graph_of_Zone(zone);
 		
 		for (auto &flow : zone.flows)
 		{
