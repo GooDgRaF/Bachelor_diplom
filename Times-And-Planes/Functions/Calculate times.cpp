@@ -2,7 +2,7 @@
 // Created by Антон on 14.04.2020.
 //
 
-#include "Calculating times.h"
+#include "Calculate times.h"
 #include "Functions/MergeTimes.h"
 #include "Fields of Zone/Maps.h"
 #include <cmath>
@@ -21,18 +21,18 @@ void calculateTimes(Zone &zone, Flow &flow)
 			catch (runtime_error &er)
 			{
 				cerr << er.what() << " on " << zone.checkPoints[j].name << endl;
-				exit(-5);
+				exit(-4);
 			}
 			
-			if ((pointIDtoStartCycleID.count(j)) //Если точка является началом стандартной схемы и остались повторы
-				&& (zone.standardSchemes[pointIDtoStartCycleID[j]].repeat > 0))
+			if ((startPointIDtoStSchemeID.count(j)) //Если точка является началом стандартной схемы и остались повторы
+				&& (zone.standardSchemes[startPointIDtoStSchemeID[j]].repeat > 0))
 			{
 				for (auto &pair : flow.times[j])
 				{
-					flow.times[j].push_back({pair.first + zone.standardSchemes[pointIDtoStartCycleID[j]].Tmin,
-											 pair.second + zone.standardSchemes[pointIDtoStartCycleID[j]].Tmax});
+					flow.times[j].push_back({pair.first + zone.standardSchemes[startPointIDtoStSchemeID[j]].Tmin,
+											 pair.second + zone.standardSchemes[startPointIDtoStSchemeID[j]].Tmax});
 				}
-				zone.standardSchemes[pointIDtoStartCycleID[j]].repeat--;
+				zone.standardSchemes[startPointIDtoStSchemeID[j]].repeat--;
 			}
 			else
 			{
