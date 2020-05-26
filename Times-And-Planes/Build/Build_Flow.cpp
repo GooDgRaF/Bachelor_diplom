@@ -17,7 +17,6 @@ void Build_Flow(Zone &zone, Flow &flow)
 		stack<int> st;
 		st.push(start_of_flow);
 		vector<bool> mark(zone.graph_of_descendants.size(), false);
-		flow.keys.resize(zone.graph_of_descendants.size()); //Почему-то нужна
 		
 		while (!st.empty())
 		{
@@ -27,7 +26,7 @@ void Build_Flow(Zone &zone, Flow &flow)
 			for (int son : zone.graph_of_descendants[v])
 			{
 				flow.graph_of_descendants[v].push_back(son);
-				if (mark[son] == 0)
+				if (!mark[son]) //Если сын ещё не посещён
 				{
 					st.push(son);
 					mark[son] = true;
