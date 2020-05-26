@@ -187,7 +187,7 @@ Read_SchemeRegExp(const string &name_of_file, vector<CheckPoint> &checkPoints, v
 					exit(-2);
 				}
 				
-				pointIDtoStartCycleID[standardSchemes[k].start] = k;
+				startPointIDtoStSchemeID[standardSchemes[k].start] = k;
 				
 				k++;
 				
