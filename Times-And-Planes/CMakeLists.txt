@@ -14,13 +14,13 @@ add_executable(Times_And_Planes
         Read/Read_SchemeRegExp.cpp Read/Read_SchemeRegExp.h
         "Fields of Zone/Scheme.h"
         Functions/Fill-scheme.cpp Functions/Fill-scheme.h
-        Build/Build_Zone.cpp Build/Build_Zone.h
+        Build/Build_graph_of_Zone.cpp Build/Build_graph_of_Zone.h
         Functions/Find-InVector.h
         Functions/Topologic_Sort.cpp            Functions/Topologic_Sort.h
         Zone.h        Zone.cpp
         Build/Build_Flow.cpp        Build/Build_Flow.h
         "Stage -1.cpp"        "Stage -1.h"
-        "Calculating times.cpp"        "Calculating times.h"
+        "Functions/Calculate times.cpp"        "Functions/Calculate times.h"
         Functions/MergeTimes.cpp Functions/MergeTimes.h
         "Measure units/Coordinate.cpp"        "Measure units/Coordinate.h"
         "Measure units/Velocity.cpp"        "Measure units/Velocity.h"
