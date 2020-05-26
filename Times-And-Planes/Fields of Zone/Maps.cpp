@@ -5,4 +5,4 @@
 #include "Maps.h"
 
 map<string, int> pointNameToID;
-map<int, int> pointIDtoStartCycleID;
+map<int, int> startPointIDtoStSchemeID;
