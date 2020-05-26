@@ -4,7 +4,7 @@
 
 #include "Velocity.h"
 #include "Coordinate.h"
-
+#include "MeasureUnits.h"
 
 
 Velocity::Velocity(double d)
@@ -55,4 +55,14 @@ Velocity operator+(const Velocity &v, const Velocity &w)
 Velocity operator-(const Velocity &v, const Velocity &w)
 	{
 		return Velocity::createVm_s(v.getVm_s() - w.getVm_s());
+	}
+
+Velocity operator*(const int &a, const Velocity &v)
+	{
+		return Velocity::createVm_s(a * v.getVm_s());
+	}
+
+Velocity operator*(const Velocity &v, const int &a)
+	{
+		return Velocity::createVm_s(v.getVm_s() * a);
 	}

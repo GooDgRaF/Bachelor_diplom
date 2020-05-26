@@ -16,11 +16,19 @@ Velocity operator+(const Velocity &v, const Velocity &w);
 
 Velocity operator-(const Velocity &v, const Velocity &w);
 
+Velocity operator*(const int &a, const Velocity &v);
+
+Velocity operator*(const Velocity &v, const int &a);
+
 Time operator/(const Coordinate &x, const Velocity &v);
 
 Time operator+(const Time &t0, const Time &t1);
 
 Time operator-(const Time &t0, const Time &t1);
+
+Time operator*(const int &a, const Time &t);
+
+Time operator*(const Time &t, const int &a);
 
 Coordinate operator+(const Coordinate &a, const Coordinate &b);
 
