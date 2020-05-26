@@ -12,7 +12,7 @@ using namespace std;
 
 void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPoint> &checkPoints)
 	{
-		int i = 0;
+		int i, k = 0;
 		
 		ifstream CheckPointFile;
 		
@@ -40,9 +40,10 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 		
 		string str;
 		cmatch res;
-		regex regular(R"(([a-z,A-Z]\w*)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)(?:\s*)(LAND|0)?)");
+		regex regular(R"(([a-z,A-Z]\w*)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([-+]?[0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)\s+([0-9]*\.?[0-9]+)\s*(LAND|0)?\s*)");
 		
-		i = 0; // Счётчик, отвечающий за проход по chekpoints
+		i = 0; //Счётчик, отвечающий за проход по chekpoints
+		k = 0; //Счётчик, отвечающщий за точку с флагом LAND
 		
 		string tmp;
 		getline(CheckPointFile, tmp); //прочитать пустую строчку чтобы не мешалась
@@ -98,7 +99,18 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 			checkPoints[i].Vmin = Velocity::createVm_s(vmin); //В зависимости от исходных данных
 			checkPoints[i].Vmax = Velocity::createVm_s(vmax);
 			
-			checkPoints[i].landing_flag = res[7] == "LAND";
+			if (res[7] == "LAND")
+			{
+				checkPoints[i].landing_flag = true;
+				k++;
+				if (k > 1)
+				{
+					cerr << "Attention! in " << name_of_file << " was found more than one points with 'LAND' flag"
+						 << endl;
+					exit(-3);
+				}
+			}
+			
 			
 			pointNameToID[checkPoints[i].name] = i;
 			
@@ -112,9 +124,18 @@ void Read_CheckPointsRegExp(const std::string &name_of_file, std::vector<CheckPo
 			
 			i++;
 		}
+		if (k == 0)
+		{
+			{
+				cerr << "Attention! in " << name_of_file << " wasn't found no one points with 'LAND' flag" << endl;
+				exit(-3);
+			}
+		}
 		
-		checkPoints.resize(i); //На случай если число точек считанное из файла, больше действительного их количества
-		
+		if (checkPoints.size() > i) //На случай если число точек считанное из файла, больше действительного их количества
+		{
+			checkPoints.resize(i);
+		}
 		
 		CheckPointFile.close();
 		
