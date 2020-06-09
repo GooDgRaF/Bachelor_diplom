@@ -43,3 +43,8 @@ cmake-build-debug/
 Points/Для точек.xlsx
 *.log
 *.synctex(busy)
+*.aux
+*.bbl
+*.blg
+*.synctex
+*.toc
