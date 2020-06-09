@@ -1,0 +1,111 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage{srcltx}
+
+\usepackage{amsmath,amssymb}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian]{babel}
+
+
+\begin{document}
+
+\section{Численные расчёты}
+Рассмотрим работу программы на примере аэропорта Кольцово.
+
+Общий вид зоны УВД Кольцово представлен на рис.~. Вид внутренней зоны представлен на рис.~
+
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[scale=0.75]{KoltsRealArriv.eps}
+        \caption{Общий вид зоны Кольцово}                                                                             
+    \label{KoltsRealArriv}  %Fig.101
+  \end{center}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[scale=0.8]{KoltsRealVeer.eps}
+        \caption{Прибывающие потоки и веерные схемы их слияния.}                                                                             
+    \label{KoltsRealVeer}  %Fig.102
+  \end{center}
+\end{figure}
+
+Рассмотрим подробнее поток начинающийся в точке RALUB.
+
+Начало координат $x=0, z=0$ расчётной системы $XOZ$ помещено в точку \text{SS025} (рис.~1.2).
+
+Поток RALUB.
+
+Была добавлена стандартная схема с началом в точке 
+
+Точка входа на контроль \textbf{RALUB} с координатами $X_{\text{RALUB}} = 72900.0$ м, \ 
+$Z_{\text{RALUB}} = -192500.0$ м, $Y_{\text{RALUB}} = 5700.0$ м,
+ЛУР 5000 м, с номинальной скоростью $V_{\text{RALUB, ном}}$ = 138.9 м/сек 
+и интервалом допустимых скоростей пролёта $\underline{V}_{\text{RALUB}}$ = 128.9 м/сек
+и $\overline{V}_{\text{RALUB}}$ = 148.9 м/сек.\\
+
+\textbf{Зона ожидания (предварительной задержки)} потока RALUB/BIKMA у точки RALUB
+(рис.~1.3).
+
+Здесь вводятся три вспомогательные точки \textbf{RAL01}, \textbf{RAL02}
+и \textbf{RAL03}.
+
+Точка \textbf{RAL01} имеет данные: координаты $X_{\text{\textbf{RAL01}}} = 55000.0$ м, \ 
+$Z_{\text{\textbf{RAL01}}} = -196500.0$ м, $Y_{\text{\textbf{RAL01}}} = 5400.0$ м,
+ЛУР 5000 м, с номинальной скоростью $V_{\text{\textbf{RAL01}, ном}}$ = 138.0 м/сек
+и интервалом допустимых скоростей пролёта $\underline{V}_{\text{\textbf{RAL01}}}$ = 128.0 м/сек
+и $\overline{V}_{\text{\textbf{RAL01}}}$ = 148.0 м/сек.
+
+Точка \textbf{RAL02} имеет данные: координаты $X_{\text{\textbf{RAL02}}} = 64000.0$ м, \ 
+$Z_{\text{\textbf{RAL02}}} = -230000.0$ м, $Y_{\text{\textbf{RAL02}}} = 5400.0$ м,
+ЛУР 5000 м, с номинальной скоростью $V_{\text{\textbf{RAL02}, ном}}$ = 138.0 м/сек
+и интервалом допустимых скоростей пролёта $\underline{V}_{\text{\textbf{RAL02}}}$ = 128.0 м/сек
+и $\overline{V}_{\text{\textbf{RAL02}}}$ = 148.0 м/сек.
+
+Точка \textbf{RAL03} имеет данные: координаты $X_{\text{\textbf{RAL03}}} = 81500.0$ м, \ 
+$Z_{\text{\textbf{RAL03}}} = -226000.0$ м, $Y_{\text{\textbf{RAL03}}} = 5400.0$ м,
+ЛУР 5000 м, с номинальной скоростью $V_{\text{\textbf{RAL03}, ном}}$ = 138.0 м/сек
+и интервалом допустимых скоростей пролёта $\underline{V}_{\text{\textbf{RAL03}}}$ = 128.0 м/сек
+и $\overline{V}_{\text{\textbf{RAL03}}}$ = 148.0 м/сек.
+
+
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[scale=0.9]{RALUBWait.eps}
+        \caption{Схема предварительной задержки (ожидания) Потока~1 RALUB (BIKMA)}                                                                             
+    \label{Fig103}
+  \end{center}
+\end{figure}
+
+
+\textbf{Прохождение этой схемы.} \ От точки \textbf{RALUB} правый разворот на 90 град на точку
+\textbf{RAL01} и точку \textbf{RAL02} со снижением на 300 м на 5400 м.
+Далее движение с требуемой \textit{номинальной или регулируемой} скоростью
+на точку \textbf{RAL02}.
+В случае небольшой величины задержки -- разворот (после её реализации)
+ на точку \textbf{RALUB}.
+В случае большой величины задержки последующий разворот на точку
+\textbf{RAL03} и далее на точку \textbf{RALUB} по обратному плечу на 5400.0 м
+с требуемой номинальной или регулируемой скоростью.
+
+По прохождению точки движение на точку \textbf{TUNED}. 
+
+Результаты программы:
+
+Flow1RALUB:\\
+RALUB \rightarrow [0 sec, 0 sec]\\
+RAL01 \rightarrow [123.95 sec, 143.31 sec]\\
+RAL02 \rightarrow [358.32 sec, 414.31 sec]\\
+RAL03 \rightarrow [479.62 sec, 554.56 sec]\\
+RALUBa \rightarrow [247.87 sec, 1366.76 sec]\\
+TUNED \rightarrow [474.52 sec, 548.67 sec] [722.4 sec, 1915.42 sec]\\
+BIKMA \rightarrow [818.27 sec, 947.42 sec] [1066.14 sec, 2314.17 sec]\\
+SS014 \rightarrow [1240.52 sec, 1443.1 sec] [1488.39 sec, 2809.85 sec]\\
+SS015 \rightarrow [1482.57 sec, 3100.8 sec]\\
+SS025 \rightarrow [1578.33 sec, 3220.5 sec]\\
+SS003 \rightarrow [1684.27 sec, 3357.83 sec]\\
+RW08L \rightarrow [1792.31 sec, 3499.11 sec]\\
+
+\end{document}
