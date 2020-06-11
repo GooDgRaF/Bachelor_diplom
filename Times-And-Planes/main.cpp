@@ -10,9 +10,9 @@ int main()
 	{
 		Zone zone;
 		
-		string nameOfPointsFile = "../Source information/Points/Koltsovo.txt";//TestFastStrReg CheckPointEzTimeTest.txt CheckPointTestTwoFlowsTopSort
-		string nameOfSchemeFile = "../Source information/Schemes/Koltsovo.txt";//SchemeEzTimeTest.txt SchemeTestTwoFlows
-		string nameOfFlowsFile = "../Source information/Flows/Koltsovo.txt"; //EzFlowTimeTest.txt TwoFlowsTest
+		string nameOfPointsFile = "../Source information/Points/KoltsovoStScheme.txt";//Test.txt
+		string nameOfSchemeFile = "../Source information/Schemes/KoltsovoStScheme.txt";//Test.txt
+		string nameOfFlowsFile = "../Source information/Flows/Koltsovo.txt";
 		
 		stage_minus_one(nameOfPointsFile, nameOfSchemeFile, nameOfFlowsFile, zone);
 		
