@@ -76,12 +76,12 @@ Time operator-(const Time &t0, const Time &t1)
 		return Time::createTsec(t0.getTsec() - t1.getTsec());
 	}
 
-Time operator*(const int &a, const Time &t)
+Time operator*(const double &a, const Time &t)
 	{
 		return Time::createTsec(a * t.getTsec());
 	}
 
-Time operator*(const Time &t, const int &a)
+Time operator*(const Time &t, const double &a)
 	{
 		return Time::createTsec(t.getTsec() * a);
 	}

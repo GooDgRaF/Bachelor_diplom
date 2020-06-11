@@ -16,9 +16,9 @@ Velocity operator+(const Velocity &v, const Velocity &w);
 
 Velocity operator-(const Velocity &v, const Velocity &w);
 
-Velocity operator*(const int &a, const Velocity &v);
+Velocity operator*(const double &a, const Velocity &v);
 
-Velocity operator*(const Velocity &v, const int &a);
+Velocity operator*(const Velocity &v, const double &a);
 
 Time operator/(const Coordinate &x, const Velocity &v);
 
@@ -26,9 +26,9 @@ Time operator+(const Time &t0, const Time &t1);
 
 Time operator-(const Time &t0, const Time &t1);
 
-Time operator*(const int &a, const Time &t);
+Time operator*(const double &a, const Time &t);
 
-Time operator*(const Time &t, const int &a);
+Time operator*(const Time &t, const double &a);
 
 Coordinate operator+(const Coordinate &a, const Coordinate &b);
 
@@ -38,9 +38,9 @@ Coordinate operator*(const Time &t, const Velocity &v);
 
 Coordinate operator*(const Velocity &v, const Time &t);
 
-Coordinate operator*(const int &a, const Coordinate &x);
+Coordinate operator*(const double &a, const Coordinate &x);
 
-Coordinate operator*(const Coordinate &x, const int &a);
+Coordinate operator*(const Coordinate &x, const double &a);
 
 Coordinate pow(Coordinate x, int a);
 
