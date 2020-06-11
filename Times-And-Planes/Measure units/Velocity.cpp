@@ -57,12 +57,12 @@ Velocity operator-(const Velocity &v, const Velocity &w)
 		return Velocity::createVm_s(v.getVm_s() - w.getVm_s());
 	}
 
-Velocity operator*(const int &a, const Velocity &v)
+Velocity operator*(const double &a, const Velocity &v)
 	{
 		return Velocity::createVm_s(a * v.getVm_s());
 	}
 
-Velocity operator*(const Velocity &v, const int &a)
+Velocity operator*(const Velocity &v, const double &a)
 	{
 		return Velocity::createVm_s(v.getVm_s() * a);
 	}
